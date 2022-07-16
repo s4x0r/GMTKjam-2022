@@ -1,0 +1,207 @@
+[gd_scene load_steps=9 format=2]
+
+[ext_resource path="res://char/unfold.tscn" type="PackedScene" id=1]
+[ext_resource path="res://tutorial.gd" type="Script" id=2]
+[ext_resource path="res://assets/font small.tres" type="DynamicFont" id=3]
+[ext_resource path="res://dots/dot.tscn" type="PackedScene" id=4]
+[ext_resource path="res://dots/5dot.tscn" type="PackedScene" id=5]
+
+[sub_resource type="Animation" id=1]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("DEFindicator:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ true ]
+}
+
+[sub_resource type="Animation" id=2]
+resource_name = "show atk"
+tracks/0/type = "value"
+tracks/0/path = NodePath("ATKindicator:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ true, false ]
+}
+
+[sub_resource type="Animation" id=3]
+resource_name = "show def"
+tracks/0/type = "value"
+tracks/0/path = NodePath("DEFindicator:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ true, false ]
+}
+
+[node name="tutorial" type="Node2D"]
+script = ExtResource( 2 )
+
+[node name="unfold" parent="." instance=ExtResource( 1 )]
+position = Vector2( 373, 378 )
+
+[node name="Label" type="Label" parent="."]
+margin_left = 267.0
+margin_top = 484.0
+margin_right = 793.0
+margin_bottom = 598.0
+custom_fonts/font = ExtResource( 3 )
+text = "Arrange your pips on the die face to change the weight of your rolls"
+autowrap = true
+
+[node name="atk" type="Button" parent="."]
+margin_left = 244.0
+margin_top = 218.0
+margin_right = 324.0
+margin_bottom = 238.0
+text = "Roll Attack"
+
+[node name="def" type="Button" parent="."]
+margin_left = 567.0
+margin_top = 225.0
+margin_right = 660.0
+margin_bottom = 245.0
+text = "Roll Defense"
+
+[node name="DEFindicator" type="Label" parent="."]
+modulate = Color( 0, 0, 1, 1 )
+margin_left = 684.0
+margin_top = 212.0
+margin_right = 736.0
+margin_bottom = 257.0
+custom_fonts/font = ExtResource( 3 )
+text = "0"
+align = 1
+valign = 1
+
+[node name="ATKindicator" type="Label" parent="."]
+visible = false
+modulate = Color( 1, 0, 0, 1 )
+margin_left = 362.0
+margin_top = 213.0
+margin_right = 414.0
+margin_bottom = 258.0
+custom_fonts/font = ExtResource( 3 )
+text = "0"
+align = 1
+valign = 1
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/RESET = SubResource( 1 )
+"anims/show atk" = SubResource( 2 )
+"anims/show def" = SubResource( 3 )
+
+[node name="dotcontainer" type="Node2D" parent="."]
+
+[node name="dot" parent="dotcontainer" instance=ExtResource( 4 )]
+position = Vector2( 336, 349 )
+
+[node name="dot2" parent="dotcontainer" instance=ExtResource( 4 )]
+position = Vector2( 319, 383 )
+
+[node name="dot3" parent="dotcontainer" instance=ExtResource( 4 )]
+position = Vector2( 271, 363 )
+
+[node name="dot4" parent="dotcontainer" instance=ExtResource( 4 )]
+position = Vector2( 249, 384 )
+
+[node name="dot5" parent="dotcontainer" instance=ExtResource( 4 )]
+position = Vector2( 404, 319 )
+
+[node name="dot6" parent="dotcontainer" instance=ExtResource( 4 )]
+position = Vector2( 375, 357 )
+
+[node name="dot7" parent="dotcontainer" instance=ExtResource( 4 )]
+position = Vector2( 375, 320 )
+
+[node name="dot8" parent="dotcontainer" instance=ExtResource( 4 )]
+position = Vector2( 402, 434 )
+
+[node name="dot9" parent="dotcontainer" instance=ExtResource( 4 )]
+position = Vector2( 585, 358 )
+
+[node name="dot19" parent="dotcontainer" instance=ExtResource( 4 )]
+position = Vector2( 533, 337 )
+
+[node name="dot20" parent="dotcontainer" instance=ExtResource( 4 )]
+position = Vector2( 538, 427 )
+
+[node name="dot21" parent="dotcontainer" instance=ExtResource( 4 )]
+position = Vector2( 495, 432 )
+
+[node name="dot10" parent="dotcontainer" instance=ExtResource( 4 )]
+position = Vector2( 718, 359 )
+
+[node name="dot11" parent="dotcontainer" instance=ExtResource( 4 )]
+position = Vector2( 692, 376 )
+
+[node name="dot12" parent="dotcontainer" instance=ExtResource( 4 )]
+position = Vector2( 717, 387 )
+
+[node name="dot13" parent="dotcontainer" instance=ExtResource( 4 )]
+position = Vector2( 711, 430 )
+
+[node name="dot14" parent="dotcontainer" instance=ExtResource( 4 )]
+position = Vector2( 728, 456 )
+
+[node name="dot15" parent="dotcontainer" instance=ExtResource( 4 )]
+position = Vector2( 636, 358 )
+
+[node name="dot16" parent="dotcontainer" instance=ExtResource( 4 )]
+position = Vector2( 688, 291 )
+
+[node name="dot17" parent="dotcontainer" instance=ExtResource( 4 )]
+position = Vector2( 760, 386 )
+
+[node name="dot18" parent="dotcontainer" instance=ExtResource( 4 )]
+position = Vector2( 760, 386 )
+
+[node name="5dot" parent="dotcontainer" instance=ExtResource( 5 )]
+position = Vector2( 460, 368 )
+
+[node name="5dot9" parent="dotcontainer" instance=ExtResource( 5 )]
+position = Vector2( 509, 362 )
+
+[node name="5dot10" parent="dotcontainer" instance=ExtResource( 5 )]
+position = Vector2( 517, 391 )
+
+[node name="5dot2" parent="dotcontainer" instance=ExtResource( 5 )]
+position = Vector2( 403, 381 )
+
+[node name="5dot3" parent="dotcontainer" instance=ExtResource( 5 )]
+position = Vector2( 369, 293 )
+
+[node name="5dot4" parent="dotcontainer" instance=ExtResource( 5 )]
+position = Vector2( 379, 430 )
+
+[node name="5dot5" parent="dotcontainer" instance=ExtResource( 5 )]
+position = Vector2( 575, 380 )
+
+[node name="5dot6" parent="dotcontainer" instance=ExtResource( 5 )]
+position = Vector2( 650, 374 )
+
+[node name="5dot7" parent="dotcontainer" instance=ExtResource( 5 )]
+position = Vector2( 712, 311 )
+
+[node name="5dot8" parent="dotcontainer" instance=ExtResource( 5 )]
+position = Vector2( 787, 361 )
+
+[connection signal="pressed" from="atk" to="." method="atk"]
+[connection signal="pressed" from="def" to="." method="def"]

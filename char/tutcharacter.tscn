@@ -1,0 +1,482 @@
+[gd_scene load_steps=18 format=2]
+
+[ext_resource path="res://dots/dot.tscn" type="PackedScene" id=1]
+[ext_resource path="res://char/unfold.tscn" type="PackedScene" id=2]
+[ext_resource path="res://dots/5dot.tscn" type="PackedScene" id=3]
+[ext_resource path="res://char/character.gd" type="Script" id=4]
+[ext_resource path="res://assets/font small.tres" type="DynamicFont" id=5]
+[ext_resource path="res://assets/IMG_5897.png" type="Texture" id=6]
+
+[sub_resource type="CircleShape2D" id=3]
+radius = 24.0
+
+[sub_resource type="AtlasTexture" id=8]
+flags = 4
+atlas = ExtResource( 6 )
+region = Rect2( 280, 14, 112, 175 )
+
+[sub_resource type="Animation" id=4]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("Camera2D/ui/hide:text")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ "hide" ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Camera2D/ui/hide:margin_left")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 656.0 ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Camera2D/ui/hide:margin_top")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 296.0 ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("Camera2D/ui/hide:margin_right")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 696.0 ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("Camera2D/ui/hide:margin_bottom")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 316.0 ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("Camera2D/ui/dice window:visible")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ true ]
+}
+
+[sub_resource type="Animation" id=5]
+resource_name = "hide ui"
+tracks/0/type = "value"
+tracks/0/path = NodePath("Camera2D/ui/dice window:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Camera2D/ui/hide:text")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ "show" ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Camera2D/ui/hide:margin_left")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 656.0 ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("Camera2D/ui/hide:margin_top")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 568.0 ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("Camera2D/ui/hide:margin_right")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 696.0 ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("Camera2D/ui/hide:margin_bottom")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 588.0 ]
+}
+
+[sub_resource type="Animation" id=6]
+resource_name = "show ui"
+tracks/0/type = "value"
+tracks/0/path = NodePath("Camera2D/ui/hide:text")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ "hide" ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Camera2D/ui/dice window:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Camera2D/ui/hide:margin_left")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 656.0 ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("Camera2D/ui/hide:margin_top")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 352.0 ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("Camera2D/ui/hide:margin_right")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 696.0 ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("Camera2D/ui/hide:margin_bottom")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 372.0 ]
+}
+
+[sub_resource type="CircleShape2D" id=7]
+radius = 48.6621
+
+[sub_resource type="Animation" id=14]
+resource_name = "idle"
+
+[sub_resource type="Animation" id=10]
+resource_name = "walk down"
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:texture:region")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ Rect2( 133, 14, 112, 175 ), Rect2( 280, 14, 112, 175 ) ]
+}
+
+[sub_resource type="Animation" id=11]
+resource_name = "walk left"
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:texture:region")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ Rect2( 231, 210, 84, 168 ), Rect2( 77, 210, 112, 168 ) ]
+}
+
+[sub_resource type="Animation" id=12]
+resource_name = "walk right"
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:texture:region")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ Rect2( 399, 210, 84, 168 ), Rect2( 511, 210, 112, 168 ) ]
+}
+
+[sub_resource type="Animation" id=13]
+resource_name = "walk up"
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:texture:region")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ Rect2( 280, 441, 112, 161 ), Rect2( 133, 441, 112, 161 ) ]
+}
+
+[node name="character" type="KinematicBody2D"]
+position = Vector2( 624, 296 )
+collision_layer = 17
+script = ExtResource( 4 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
+shape = SubResource( 3 )
+
+[node name="Sprite" type="Sprite" parent="."]
+scale = Vector2( 0.5, 0.5 )
+texture = SubResource( 8 )
+
+[node name="Camera2D" type="Camera2D" parent="."]
+current = true
+
+[node name="ui" type="Control" parent="Camera2D"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -512.0
+margin_top = -296.0
+margin_right = 512.0
+margin_bottom = 296.0
+mouse_filter = 2
+
+[node name="hide" type="Button" parent="Camera2D/ui"]
+margin_left = 656.0
+margin_top = 296.0
+margin_right = 696.0
+margin_bottom = 316.0
+text = "hide"
+
+[node name="dice window" type="Panel" parent="Camera2D/ui"]
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -688.0
+margin_top = -216.0
+mouse_filter = 2
+
+[node name="unfold" parent="Camera2D/ui/dice window" instance=ExtResource( 2 )]
+position = Vector2( 200, 112 )
+
+[node name="DOTcontainer" type="Node2D" parent="Camera2D/ui/dice window"]
+position = Vector2( 176, -80 )
+
+[node name="5dot" parent="Camera2D/ui/dice window/DOTcontainer" instance=ExtResource( 3 )]
+position = Vector2( -64, 176 )
+
+[node name="5dot2" parent="Camera2D/ui/dice window/DOTcontainer" instance=ExtResource( 3 )]
+position = Vector2( 24, 176 )
+
+[node name="5dot3" parent="Camera2D/ui/dice window/DOTcontainer" instance=ExtResource( 3 )]
+position = Vector2( -24, 192 )
+
+[node name="dot" parent="Camera2D/ui/dice window/DOTcontainer" instance=ExtResource( 1 )]
+position = Vector2( 48, 240 )
+
+[node name="dot2" parent="Camera2D/ui/dice window/DOTcontainer" instance=ExtResource( 1 )]
+position = Vector2( 168, 193 )
+
+[node name="dot3" parent="Camera2D/ui/dice window/DOTcontainer" instance=ExtResource( 1 )]
+position = Vector2( 312, 176 )
+
+[node name="5dot4" parent="Camera2D/ui/dice window/DOTcontainer" instance=ExtResource( 3 )]
+position = Vector2( 368, 128 )
+
+[node name="5dot5" parent="Camera2D/ui/dice window/DOTcontainer" instance=ExtResource( 3 )]
+position = Vector2( 368, 192 )
+
+[node name="5dot6" parent="Camera2D/ui/dice window/DOTcontainer" instance=ExtResource( 3 )]
+position = Vector2( 232, 184 )
+
+[node name="dot4" parent="Camera2D/ui/dice window/DOTcontainer" instance=ExtResource( 1 )]
+position = Vector2( 384, 240 )
+
+[node name="dot5" parent="Camera2D/ui/dice window/DOTcontainer" instance=ExtResource( 1 )]
+position = Vector2( 360, 240 )
+
+[node name="dot6" parent="Camera2D/ui/dice window/DOTcontainer" instance=ExtResource( 1 )]
+position = Vector2( 424, 192 )
+
+[node name="5dot7" parent="Camera2D/ui/dice window/DOTcontainer" instance=ExtResource( 3 )]
+position = Vector2( 48, 120 )
+
+[node name="dot7" parent="Camera2D/ui/dice window/DOTcontainer" instance=ExtResource( 1 )]
+position = Vector2( -8, 168 )
+
+[node name="roll indicator" type="Label" parent="Camera2D/ui"]
+visible = false
+margin_left = 488.0
+margin_top = 248.0
+margin_right = 536.0
+margin_bottom = 270.0
+align = 1
+
+[node name="Button" type="Button" parent="Camera2D/ui"]
+margin_left = 496.0
+margin_top = 320.0
+margin_right = 529.0
+margin_bottom = 340.0
+text = "roll"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Camera2D/ui"]
+root_node = NodePath("../../..")
+anims/RESET = SubResource( 4 )
+"anims/hide ui" = SubResource( 5 )
+"anims/show ui" = SubResource( 6 )
+
+[node name="hitzone" type="Area2D" parent="."]
+collision_layer = 18
+collision_mask = 96
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="hitzone"]
+shape = SubResource( 7 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/idle = SubResource( 14 )
+"anims/walk down" = SubResource( 10 )
+"anims/walk left" = SubResource( 11 )
+"anims/walk right" = SubResource( 12 )
+"anims/walk up" = SubResource( 13 )
+
+[node name="DMGindicator" type="Label" parent="."]
+modulate = Color( 1, 0, 0, 1 )
+margin_left = -28.0
+margin_top = 8.0
+margin_right = 28.0
+margin_bottom = 53.0
+custom_fonts/font = ExtResource( 5 )
+text = "0"
+align = 1
+valign = 1
+
+[node name="DEFindicator" type="Label" parent="."]
+modulate = Color( 0, 0, 1, 1 )
+margin_left = -24.0
+margin_top = -44.0
+margin_right = 28.0
+margin_bottom = 1.0
+custom_fonts/font = ExtResource( 5 )
+text = "0"
+align = 1
+valign = 1
+
+[node name="ATKindicator" type="Label" parent="."]
+modulate = Color( 1, 0, 0, 1 )
+margin_left = -24.0
+margin_top = -44.0
+margin_right = 28.0
+margin_bottom = 1.0
+custom_fonts/font = ExtResource( 5 )
+text = "0"
+align = 1
+valign = 1
+
+[node name="HPindicator" type="Label" parent="."]
+modulate = Color( 0, 1, 0, 1 )
+margin_left = -28.0
+margin_top = 45.0
+margin_right = 28.0
+margin_bottom = 90.0
+custom_fonts/font = ExtResource( 5 )
+text = "0"
+align = 1
+valign = 1
+
+[connection signal="pressed" from="Camera2D/ui/hide" to="." method="hide"]
+[connection signal="pressed" from="Camera2D/ui/Button" to="." method="roll"]
