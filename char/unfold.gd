@@ -20,11 +20,6 @@ func fold(side):
 	return sides
 	#print(sides)
 
-func next():
-	face +=1
-	if face ==7:
-		face = 1
-	$ViewportContainer/Viewport/camera.position-=($ViewportContainer/Viewport/camera.get_global_position()-get_node("facemap/side "+face).get_global_position())
 
 func atk():
 	var sides=fold("atk")
@@ -38,8 +33,9 @@ func def():
 	var sides=fold("def")
 	var rand=rng.randi_range(0, sides.size()-1)
 	$rollindicator.global_position=get_node("deffacemap/side "+str(rand+1)).global_position
-	$rollindicator.visible=true
-	$Timer.start(1)
+	if get_parent().visible:
+		$rollindicator.visible=true
+		$Timer.start(1)
 	return sides[rand]
 
 func timeout():

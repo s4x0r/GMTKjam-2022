@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=2]
+[gd_scene load_steps=20 format=2]
 
 [ext_resource path="res://char/randomizer.gd" type="Script" id=1]
 [ext_resource path="res://char/dice.gd" type="Script" id=2]
@@ -15,6 +15,8 @@
 [ext_resource path="res://dots/dot.tscn" type="PackedScene" id=13]
 [ext_resource path="res://enemies/tomato.tscn" type="PackedScene" id=14]
 [ext_resource path="res://enemies/tomato lv1.gd" type="Script" id=15]
+[ext_resource path="res://enemies/carrot.tscn" type="PackedScene" id=16]
+[ext_resource path="res://enemies/door.tscn" type="PackedScene" id=17]
 
 [sub_resource type="Animation" id=1]
 length = 0.001
@@ -215,6 +217,24 @@ position = Vector2( 1312, 386 )
 
 [node name="stats" type="Node" parent="enemy container/tomato7"]
 script = ExtResource( 15 )
+
+[node name="enemy4" parent="enemy container" instance=ExtResource( 16 )]
+position = Vector2( -1615, -402 )
+
+[node name="door" parent="enemy container" instance=ExtResource( 17 )]
+position = Vector2( -1501, -240 )
+
+[node name="enemy5" parent="enemy container" instance=ExtResource( 7 )]
+position = Vector2( -1746, -410 )
+
+[node name="melon7" parent="enemy container" instance=ExtResource( 9 )]
+position = Vector2( -1493, -416 )
+
+[node name="onion8" parent="enemy container" instance=ExtResource( 8 )]
+position = Vector2( -1626, -245 )
+
+[node name="tomato8" parent="enemy container" instance=ExtResource( 14 )]
+position = Vector2( -1749, -254 )
 
 [node name="dot" parent="." instance=ExtResource( 13 )]
 position = Vector2( 678, 69 )

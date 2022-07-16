@@ -93,10 +93,6 @@ func _input(event):
 func _physics_process(delta):
 	updateHP()
 
-	
-
-
-	
 	var areas = $hitzone.get_overlapping_areas()
 	for i in areas:
 		if i.name =="dotarea":
@@ -109,18 +105,12 @@ func _physics_process(delta):
 			pass
 
 
-	#if Input.is_action_pressed("char_act"):
-	#	roll()
-
-
 	velocity += Vector2(delta, delta)
 	var inpt =Vector2(
 		int(Input.is_action_pressed("char_right"))-int(Input.is_action_pressed("char_left")),
 		int(Input.is_action_pressed("char_down"))-int(Input.is_action_pressed("char_up"))
 	)	
 	velocity=inpt*WALK_SPEED
-
-
 	# We don't need to multiply velocity by delta because "move_and_slide" already takes delta time into account.
 
 	# The second parameter of "move_and_slide" is the normal pointing up.
