@@ -7,10 +7,12 @@ extends Sprite
 
 var moving
 var bounce = 3
-var weight = 1
+var weight = 5
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+
+	
 	moving=false
 	updateText()
 	pass # Replace with function body.
@@ -32,12 +34,13 @@ func updateText():
 func _process(delta):
 	if !Input.is_action_pressed("click"):
 		moving=false
-	for i in $Area2D.get_overlapping_areas():
+	for i in $dotarea.get_overlapping_areas():
 		if i.name.substr(0, 4) != "side":
 			moving=false
 			var vect=i.get_global_position()-self.get_global_position()
 			vect = vect.normalized()
 			self.position=position-vect*2
+		
 
 	if moving:
 		self.position-=(self.get_global_position()-self.get_global_mouse_position())

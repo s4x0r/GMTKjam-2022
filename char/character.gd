@@ -83,6 +83,12 @@ func _physics_process(delta):
 
 	velocity += Vector2(delta, delta)
 	
+	var areas = $hitzone.get_overlapping_areas()
+	for i in areas:
+		if i.name =="dotarea":
+			#add_child(i)
+			pass
+
 	var inpt =Vector2(
 		int(Input.is_action_pressed("char_right"))-int(Input.is_action_pressed("char_left")),
 		int(Input.is_action_pressed("char_down"))-int(Input.is_action_pressed("char_up"))

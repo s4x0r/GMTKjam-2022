@@ -1,15 +1,15 @@
 [gd_scene load_steps=17 format=2]
 
-[ext_resource path="res://randomizer.gd" type="Script" id=1]
-[ext_resource path="res://dice.gd" type="Script" id=2]
+[ext_resource path="res://char/randomizer.gd" type="Script" id=1]
+[ext_resource path="res://char/dice.gd" type="Script" id=2]
 [ext_resource path="res://main.gd" type="Script" id=3]
 [ext_resource path="res://assets/qea14rgp.bmp" type="Texture" id=4]
-[ext_resource path="res://character.tscn" type="PackedScene" id=5]
-[ext_resource path="res://top down.tres" type="TileSet" id=6]
-[ext_resource path="res://walls.tres" type="TileSet" id=7]
+[ext_resource path="res://char/character.tscn" type="PackedScene" id=5]
+[ext_resource path="res://world/top down.tres" type="TileSet" id=6]
+[ext_resource path="res://world/walls.tres" type="TileSet" id=7]
 [ext_resource path="res://assets/IMG_5884.png" type="Texture" id=8]
-[ext_resource path="res://melon.tscn" type="PackedScene" id=9]
-[ext_resource path="res://melon lv1.gd" type="Script" id=10]
+[ext_resource path="res://enemies/melon.tscn" type="PackedScene" id=9]
+[ext_resource path="res://enemies/melon lv1.gd" type="Script" id=10]
 
 [sub_resource type="Animation" id=1]
 length = 0.001

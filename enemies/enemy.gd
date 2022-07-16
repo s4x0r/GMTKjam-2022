@@ -5,7 +5,9 @@ var hp
 var atk
 var def 
 var time
+var hold
 var rng = RandomNumberGenerator.new()
+onready var h = preload("res://dots/dot.tscn")
 
 
 # Called when the node enters the scene tree for the first time.
@@ -21,6 +23,11 @@ func _ready():
 	atk = $stats.atk
 	def = $stats.def
 	time = $stats.time
+	hold= $stats.hold
+
+	if hold:
+		$DOTindicator.text=str(hold)
+		$DOTindicator.visible=true
 
 	updateHP()
 	pass # Replace with function body.
@@ -70,7 +77,13 @@ func showdmg(dmg, def):
 func updateHP():
 	$HPindicator.text=str(hp)
 	if hp==0:
+		if hold:
+			var dot = h.instance()
+			dot.weight=hold
+			get_tree().get_root().add_child(dot)
+			dot.position=self.get_global_position()
 		emit_signal("dead")
+
 	pass
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
