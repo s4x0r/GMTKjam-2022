@@ -2,9 +2,9 @@ extends KinematicBody2D
 
 
 var hp
-var atk = [2, 5]
-var def = [2, 5]
-var time = 1
+var atk
+var def 
+var time
 var rng = RandomNumberGenerator.new()
 
 
