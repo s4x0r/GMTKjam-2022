@@ -1,11 +1,16 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://character.gd" type="Script" id=1]
-[ext_resource path="res://assets/rpg-pack/chars/gabe/gabe-idle-run.png" type="Texture" id=2]
+[ext_resource path="res://assets/IMG_5897.png" type="Texture" id=2]
 [ext_resource path="res://unfold.tscn" type="PackedScene" id=3]
 
 [sub_resource type="CircleShape2D" id=3]
 radius = 24.0
+
+[sub_resource type="AtlasTexture" id=8]
+flags = 4
+atlas = ExtResource( 2 )
+region = Rect2( 280, 14, 112, 175 )
 
 [sub_resource type="Animation" id=4]
 length = 0.001
@@ -235,6 +240,73 @@ tracks/5/keys = {
 [sub_resource type="CircleShape2D" id=7]
 radius = 48.6621
 
+[sub_resource type="Animation" id=14]
+resource_name = "idle"
+
+[sub_resource type="Animation" id=10]
+resource_name = "walk down"
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:texture:region")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ Rect2( 133, 14, 112, 175 ), Rect2( 280, 14, 112, 175 ) ]
+}
+
+[sub_resource type="Animation" id=11]
+resource_name = "walk left"
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:texture:region")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ Rect2( 231, 210, 84, 168 ), Rect2( 77, 210, 112, 168 ) ]
+}
+
+[sub_resource type="Animation" id=12]
+resource_name = "walk right"
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:texture:region")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ Rect2( 399, 210, 84, 168 ), Rect2( 511, 210, 112, 168 ) ]
+}
+
+[sub_resource type="Animation" id=13]
+resource_name = "walk up"
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:texture:region")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ Rect2( 280, 441, 112, 161 ), Rect2( 133, 441, 112, 161 ) ]
+}
+
 [node name="character" type="KinematicBody2D"]
 position = Vector2( 624, 296 )
 script = ExtResource( 1 )
@@ -244,15 +316,8 @@ visible = false
 shape = SubResource( 3 )
 
 [node name="Sprite" type="Sprite" parent="."]
-position = Vector2( 9.53674e-07, -4.76837e-07 )
-scale = Vector2( 2, 2 )
-texture = ExtResource( 2 )
-hframes = 7
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-anims/RESET = SubResource( 4 )
-"anims/hide ui" = SubResource( 5 )
-"anims/show ui" = SubResource( 6 )
+scale = Vector2( 0.5, 0.5 )
+texture = SubResource( 8 )
 
 [node name="Camera2D" type="Camera2D" parent="."]
 current = true
@@ -299,10 +364,25 @@ margin_right = 529.0
 margin_bottom = 340.0
 text = "roll"
 
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Camera2D/ui"]
+root_node = NodePath("../../..")
+anims/RESET = SubResource( 4 )
+"anims/hide ui" = SubResource( 5 )
+"anims/show ui" = SubResource( 6 )
+
 [node name="hitzone" type="Area2D" parent="."]
+collision_layer = 16
+collision_mask = 32
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="hitzone"]
 shape = SubResource( 7 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/idle = SubResource( 14 )
+"anims/walk down" = SubResource( 10 )
+"anims/walk left" = SubResource( 11 )
+"anims/walk right" = SubResource( 12 )
+"anims/walk up" = SubResource( 13 )
 
 [connection signal="pressed" from="Camera2D/ui/hide" to="." method="hide"]
 [connection signal="pressed" from="Camera2D/ui/Button" to="." method="roll"]

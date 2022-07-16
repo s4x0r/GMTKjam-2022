@@ -20,15 +20,15 @@ func _ready():
 
 func hide():
 	if $"Camera2D/ui/dice window".visible:
-		$AnimationPlayer.play("hide ui")
+		$Camera2D/ui/AnimationPlayer.play("hide ui")
 	else:
-		$AnimationPlayer.play("show ui")
+		$Camera2D/ui/AnimationPlayer.play("show ui")
 	pass
 
 func roll():
 	var atk=$"Camera2D/ui/dice window/unfold".atk()
 
-	$hitzone.get_overlapping_bodies()
+	$hitzone.get_overlapping_bodies()[0].damage(atk)
 
 	$"Camera2D/ui/roll indicator".text=str(atk)
 	yield(get_tree().create_timer(time), "timeout")
@@ -44,6 +44,19 @@ func _physics_process(delta):
 		int(Input.is_action_pressed("char_down"))-int(Input.is_action_pressed("char_up"))
 	)	
 
+
+	if inpt.y !=0:
+		if inpt.y == 1:
+			$AnimationPlayer.play("walk up")
+		else:
+			$AnimationPlayer.play("walk down")
+	elif inpt.x !=0:
+		if inpt.x == 1:
+			$AnimationPlayer.play("walk right")
+		else:
+			$AnimationPlayer.play("walk left")
+	else:
+		$AnimationPlayer.play("idle")
 
 	velocity=inpt*WALK_SPEED
 
