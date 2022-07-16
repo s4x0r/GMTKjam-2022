@@ -111,6 +111,7 @@ margin_right = 23.0
 text = "close"
 
 [node name="settings" type="Panel" parent="."]
+visible = false
 margin_right = 40.0
 margin_bottom = 40.0
 
