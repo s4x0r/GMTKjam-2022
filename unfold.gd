@@ -15,7 +15,7 @@ func fold():
 	for i in range(0,6):
 		print(i)
 		sides[i]=get_node("facemap/side "+str(i+1)).get_overlapping_areas().size()
-	print(sides)
+	#print(sides)
 
 func next():
 	face +=1

@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=18 format=2]
 
 [ext_resource path="res://randomizer.gd" type="Script" id=1]
 [ext_resource path="res://dice.gd" type="Script" id=2]
@@ -7,6 +7,7 @@
 [ext_resource path="res://character.tscn" type="PackedScene" id=5]
 [ext_resource path="res://top down.tres" type="TileSet" id=6]
 [ext_resource path="res://walls.tres" type="TileSet" id=7]
+[ext_resource path="res://assets/IMG_5884.png" type="Texture" id=8]
 
 [sub_resource type="Animation" id=1]
 length = 0.001
@@ -40,6 +41,95 @@ tracks/0/keys = {
 "values": [ 0, 1, 3, 5, 3, 2, 1, 4, 2, 3, 2, 5, 0, 3, 3 ]
 }
 
+[sub_resource type="AtlasTexture" id=3]
+flags = 4
+atlas = ExtResource( 8 )
+region = Rect2( 1248, 56, 528, 224 )
+
+[sub_resource type="CircleShape2D" id=4]
+radius = 22.0
+
+[sub_resource type="Animation" id=5]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ SubResource( 3 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Sprite:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 0 ]
+}
+
+[sub_resource type="Animation" id=6]
+resource_name = "idle"
+length = 0.6
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.3 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ 0, 1 ]
+}
+
+[sub_resource type="AtlasTexture" id=7]
+flags = 4
+atlas = ExtResource( 8 )
+region = Rect2( 736, 20, 545, 263 )
+
+[sub_resource type="Animation" id=8]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 0 ]
+}
+
+[sub_resource type="Animation" id=9]
+resource_name = "idle"
+length = 0.6
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.3 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ 0, 1 ]
+}
+
 [node name="main" type="Node2D"]
 script = ExtResource( 3 )
 
@@ -59,8 +149,10 @@ format = 1
 tile_data = PoolIntArray( 327703, 3, 0, 327704, 4, 0, 327705, 4, 0, 327706, 4, 0, 327707, 5, 0, 393239, 6, 0, 393243, 8, 0, 458775, 0, 0, 458776, 1, 0, 458777, 1, 0, 458778, 1, 0, 458779, 2, 0 )
 
 [node name="character" parent="." instance=ExtResource( 5 )]
+position = Vector2( 648, 274 )
 
 [node name="dice" type="Sprite" parent="."]
+visible = false
 position = Vector2( 432, 176 )
 texture = ExtResource( 4 )
 hframes = 3
@@ -72,10 +164,49 @@ anims/RESET = SubResource( 1 )
 anims/rolling = SubResource( 2 )
 
 [node name="Button" type="Button" parent="."]
+visible = false
 margin_left = 384.0
 margin_top = 224.0
 margin_right = 484.0
 margin_bottom = 274.0
 text = "roll d6"
+
+[node name="melon" type="KinematicBody2D" parent="."]
+position = Vector2( 382, 27 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Sprite" type="Sprite" parent="melon"]
+scale = Vector2( 0.25, 0.25 )
+texture = SubResource( 3 )
+hframes = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="melon"]
+position = Vector2( 7, 1 )
+shape = SubResource( 4 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="melon"]
+anims/RESET = SubResource( 5 )
+anims/idle = SubResource( 6 )
+
+[node name="onion" type="KinematicBody2D" parent="."]
+position = Vector2( 248, 48 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Sprite" type="Sprite" parent="onion"]
+scale = Vector2( 0.25, 0.25 )
+texture = SubResource( 7 )
+hframes = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="onion"]
+position = Vector2( -4, 5 )
+shape = SubResource( 4 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="onion"]
+anims/RESET = SubResource( 8 )
+anims/idle = SubResource( 9 )
 
 [connection signal="pressed" from="Button" to="." method="_on_Button_pressed"]
