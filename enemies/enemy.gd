@@ -9,6 +9,12 @@ var hold
 var rng = RandomNumberGenerator.new()
 onready var h = preload("res://dots/dot.tscn")
 
+const WALK_SPEED = 200
+var velocity
+var bumpscosity =0
+var moving
+var inpt
+
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -17,6 +23,8 @@ func _ready():
 	$HPindicator.text=""
 	$DEFindicator.text=""
 
+	velocity = Vector2(0,0)
+	inpt = Vector2(0,0)
 	rng.randomize()
 	
 	hp = $stats.hp
@@ -34,6 +42,17 @@ func _ready():
 
 
 func _on_timer():
+	bumpscosity+=1
+
+	# rolls dice and moves in random direction
+	if !moving && bumpscosity>rng.randi_range(1,3):
+		bumpscosity*=50
+		inpt =Vector2(
+			rng.randi_range(-1, 1),
+			rng.randi_range(-1, 1)
+		)	
+		moving = true
+
 	var bodies =$hitzone.get_overlapping_bodies()
 	if bodies:
 		var rand=rng.randi_range(def[0], def[1])
@@ -76,7 +95,7 @@ func showdmg(dmg, def):
 
 func updateHP():
 	$HPindicator.text=str(hp)
-	if hp==0:
+	if hp<=0:
 		if hold:
 			var dot = h.instance()
 			dot.weight=hold
@@ -88,5 +107,20 @@ func updateHP():
 	pass
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta):
-#	pass
+func _physics_process(delta):
+	velocity += Vector2(delta, delta)
+	if moving:
+		bumpscosity -=1
+		if bumpscosity<0:
+			moving = false
+		
+		
+		velocity=inpt*WALK_SPEED
+
+
+		# We don't need to multiply velocity by delta because "move_and_slide" already takes delta time into account.
+
+		# The second parameter of "move_and_slide" is the normal pointing up.
+		# In the case of a 2D platformer, in Godot, upward is negative y, which translates to -1 as a normal.
+		move_and_slide(velocity, Vector2(0, -1))
+	pass
