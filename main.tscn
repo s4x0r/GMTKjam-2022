@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=2]
+[gd_scene load_steps=17 format=2]
 
 [ext_resource path="res://randomizer.gd" type="Script" id=1]
 [ext_resource path="res://dice.gd" type="Script" id=2]
@@ -9,6 +9,7 @@
 [ext_resource path="res://walls.tres" type="TileSet" id=7]
 [ext_resource path="res://assets/IMG_5884.png" type="Texture" id=8]
 [ext_resource path="res://melon.tscn" type="PackedScene" id=9]
+[ext_resource path="res://melon lv1.gd" type="Script" id=10]
 
 [sub_resource type="Animation" id=1]
 length = 0.001
@@ -125,6 +126,9 @@ text = "roll d6"
 
 [node name="melon" parent="." instance=ExtResource( 9 )]
 position = Vector2( 539, 195 )
+
+[node name="stats" type="Node" parent="melon"]
+script = ExtResource( 10 )
 
 [node name="onion" type="KinematicBody2D" parent="."]
 position = Vector2( 248, 48 )

@@ -60,7 +60,7 @@ tracks/0/keys = {
 }
 
 [node name="melon" type="KinematicBody2D"]
-collision_layer = 33
+collision_layer = 32
 script = ExtResource( 1 )
 
 [node name="hitzone" type="Area2D" parent="."]
@@ -84,19 +84,52 @@ shape = SubResource( 4 )
 anims/RESET = SubResource( 5 )
 anims/idle = SubResource( 6 )
 
-[node name="HPindicator" type="Label" parent="."]
-margin_left = -20.0
-margin_top = -73.0
-margin_right = 20.0
-margin_bottom = -24.0
-custom_fonts/font = ExtResource( 3 )
+[node name="Timer" type="Timer" parent="."]
+wait_time = 2.5
+autostart = true
 
 [node name="DMGindicator" type="Label" parent="."]
-modulate = Color( 0, 0, 1, 1 )
-margin_left = -19.0
-margin_top = -3.0
-margin_right = 21.0
-margin_bottom = 37.0
+modulate = Color( 1, 0, 0, 1 )
+margin_left = -28.0
+margin_top = 8.0
+margin_right = 28.0
+margin_bottom = 53.0
 custom_fonts/font = ExtResource( 3 )
+text = "0"
 align = 1
 valign = 1
+
+[node name="DEFindicator" type="Label" parent="."]
+modulate = Color( 0, 0, 1, 1 )
+margin_left = -25.0
+margin_top = 43.0
+margin_right = 27.0
+margin_bottom = 88.0
+custom_fonts/font = ExtResource( 3 )
+text = "0"
+align = 1
+valign = 1
+
+[node name="ATKindicator" type="Label" parent="."]
+modulate = Color( 1, 0, 0, 1 )
+margin_left = -25.0
+margin_top = 43.0
+margin_right = 27.0
+margin_bottom = 88.0
+custom_fonts/font = ExtResource( 3 )
+text = "0"
+align = 1
+valign = 1
+
+[node name="HPindicator" type="Label" parent="."]
+modulate = Color( 0, 1, 0, 1 )
+margin_left = -27.0
+margin_top = -66.0
+margin_right = 29.0
+margin_bottom = -21.0
+custom_fonts/font = ExtResource( 3 )
+text = "0"
+align = 1
+valign = 1
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer"]
