@@ -83,6 +83,7 @@ func updateHP():
 			get_tree().get_root().add_child(dot)
 			dot.position=self.get_global_position()
 		emit_signal("dead")
+		queue_free()
 
 	pass
 

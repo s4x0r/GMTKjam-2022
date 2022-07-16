@@ -1,15 +1,17 @@
-[gd_scene load_steps=17 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://char/randomizer.gd" type="Script" id=1]
 [ext_resource path="res://char/dice.gd" type="Script" id=2]
 [ext_resource path="res://main.gd" type="Script" id=3]
 [ext_resource path="res://assets/qea14rgp.bmp" type="Texture" id=4]
 [ext_resource path="res://char/character.tscn" type="PackedScene" id=5]
-[ext_resource path="res://world/top down.tres" type="TileSet" id=6]
-[ext_resource path="res://world/walls.tres" type="TileSet" id=7]
-[ext_resource path="res://assets/IMG_5884.png" type="Texture" id=8]
+[ext_resource path="res://world/world.tscn" type="PackedScene" id=6]
+[ext_resource path="res://enemies/enemy.tscn" type="PackedScene" id=7]
+[ext_resource path="res://enemies/onion.tscn" type="PackedScene" id=8]
 [ext_resource path="res://enemies/melon.tscn" type="PackedScene" id=9]
 [ext_resource path="res://enemies/melon lv1.gd" type="Script" id=10]
+[ext_resource path="res://enemies/celery lv10.gd" type="Script" id=11]
+[ext_resource path="res://enemies/onion lv5.gd" type="Script" id=12]
 
 [sub_resource type="Animation" id=1]
 length = 0.001
@@ -43,63 +45,13 @@ tracks/0/keys = {
 "values": [ 0, 1, 3, 5, 3, 2, 1, 4, 2, 3, 2, 5, 0, 3, 3 ]
 }
 
-[sub_resource type="AtlasTexture" id=7]
-flags = 4
-atlas = ExtResource( 8 )
-region = Rect2( 736, 20, 545, 263 )
-
-[sub_resource type="CircleShape2D" id=4]
-radius = 22.0
-
-[sub_resource type="Animation" id=8]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/path = NodePath("Sprite:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 0,
-"values": [ 0 ]
-}
-
-[sub_resource type="Animation" id=9]
-resource_name = "idle"
-length = 0.6
-loop = true
-tracks/0/type = "value"
-tracks/0/path = NodePath("Sprite:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0, 0.3 ),
-"transitions": PoolRealArray( 1, 1 ),
-"update": 1,
-"values": [ 0, 1 ]
-}
-
 [node name="main" type="Node2D"]
 script = ExtResource( 3 )
 
+[node name="world" parent="." instance=ExtResource( 6 )]
+
 [node name="randomizer" type="Node2D" parent="."]
 script = ExtResource( 1 )
-
-[node name="bg" type="TileMap" parent="."]
-tile_set = ExtResource( 6 )
-cell_size = Vector2( 32, 32 )
-format = 1
-tile_data = PoolIntArray( 196618, 0, 0, 196619, 21, 0, 196620, 0, 0, 196621, 0, 0, 196622, 20, 0, 196623, 0, 0, 196624, 0, 0, 196625, 0, 0, 196626, 0, 0, 196627, 0, 0, 196628, 18, 0, 196629, 21, 0, 196630, 18, 0, 196631, 0, 0, 196632, 0, 0, 196633, 0, 0, 196634, 20, 0, 262155, 0, 0, 262156, 0, 0, 262157, 0, 0, 262158, 0, 0, 262159, 0, 0, 262160, 7, 0, 262161, 2, 0, 262162, 2, 0, 262163, 2, 0, 262164, 2, 0, 262165, 2, 0, 262166, 2, 0, 262167, 2, 0, 262168, 2, 0, 327691, 1, 0, 327692, 19, 0, 327693, 0, 0, 327694, 0, 0, 327695, 1, 0, 327696, 2, 0, 327697, 2, 0, 327698, 2, 0, 327699, 2, 0, 327700, 0, 0, 327701, 2, 0, 327702, 2, 0, 327703, 22, 0, 327704, 22, 0, 327705, 22, 0, 327706, 22, 0, 327707, 22, 0, 393227, 0, 0, 393228, 0, 0, 393229, 0, 0, 393230, 0, 0, 393231, 21, 0, 393232, 13, 0, 393233, 2, 0, 393234, 2, 0, 393235, 14, 0, 393236, 0, 0, 393237, 0, 0, 393238, 0, 0, 393239, 22, 0, 393240, 22, 0, 393241, 22, 0, 393242, 22, 0, 393243, 22, 0, 393244, 0, 0, 458763, 0, 0, 458764, 0, 0, 458765, 1, 0, 458766, 0, 0, 458767, 10, 0, 458768, -1073741812, 0, 458769, 2, 0, 458770, 2, 0, 458771, 0, 0, 458772, 21, 0, 458773, 0, 0, 458774, 0, 0, 458775, 0, 0, 458776, 0, 0, 458777, 20, 0, 458778, 0, 0, 458779, 0, 0, 458780, 0, 0, 524299, 19, 0, 524300, 0, 0, 524301, 20, 0, 524302, 7, 0, 524303, 4, 0, 524304, 4, 0, 524305, 5, 0, 524306, 2, 0, 524307, 0, 0, 524308, 0, 0, 524309, 1, 0, 524310, 0, 0, 524311, 1, 0, 524312, 0, 0, 524313, 0, 0, 524314, 0, 0, 524315, 0, 0, 524316, 0, 0, 589835, 0, 0, 589836, 1, 0, 589837, 21, 0, 589838, 0, 0, 589839, 4, 0, 589840, 4, 0, 589841, 5, 0, 589842, 5, 0, 589843, 8, 0, 589844, 0, 0, 589845, 18, 0, 589846, 0, 0, 589847, 0, 0, 589848, 0, 0, 589849, 0, 0, 589850, 19, 0, 589851, 0, 0, 589852, 0, 0, 655371, 0, 0, 655372, 1, 0, 655373, 0, 0, 655374, 2, 0, 655375, 3, 0, 655376, 5, 0, 655377, 5, 0, 655378, 4, 0, 655379, 0, 0, 655380, 0, 0, 655381, 0, 0, 655382, 0, 0, 655383, 0, 0, 655384, 0, 0, 655385, 0, 0, 655386, 0, 0, 655387, 1, 0, 655388, 0, 0, 720907, 0, 0, 720908, 0, 0, 720909, 18, 0, 720910, 2, 0, 720911, 2, 0, 720912, 3, 0, 720913, 5, 0, 720914, 4, 0, 720915, 0, 0, 720916, 0, 0, 720917, 0, 0, 720918, 1, 0, 720919, 18, 0, 720920, 0, 0, 720921, 0, 0, 720922, 0, 0, 720923, 18, 0, 720924, 0, 0, 786443, 0, 0, 786444, 1, 0, 786445, 0, 0, 786446, 0, 0, 786447, 0, 0, 786448, 4, 0, 786449, 4, 0, 786450, 11, 0, 786451, 19, 0, 786452, 0, 0, 786453, 0, 0, 786454, 0, 0, 786455, 0, 0, 786456, 19, 0, 786457, 0, 0, 786458, 19, 0, 786459, 21, 0, 786460, 20, 0, 851984, 4, 0, 851985, 4, 0, 851987, 0, 0, 851988, 0, 0, 851989, 0, 0, 851990, 0, 0, 851991, 0, 0, 851992, 1, 0, 851993, 20, 0, 851994, 1, 0, 851995, 19, 0, 851996, 0, 0, 917520, 4, 0, 917521, 4, 0, 983056, 2, 0, 983057, 2, 0, 1048592, 2, 0, 1048593, 2, 0, 1114128, 2, 0, 1114129, 2, 0, 1179664, 2, 0, 1179665, 2, 0 )
-
-[node name="walls" type="TileMap" parent="."]
-tile_set = ExtResource( 7 )
-cell_size = Vector2( 32, 32 )
-format = 1
-tile_data = PoolIntArray( 327703, 3, 0, 327704, 4, 0, 327705, 4, 0, 327706, 4, 0, 327707, 5, 0, 393239, 6, 0, 393243, 8, 0, 458775, 0, 0, 458776, 1, 0, 458777, 1, 0, 458778, 1, 0, 458779, 2, 0 )
 
 [node name="character" parent="." instance=ExtResource( 5 )]
 position = Vector2( 608, 241 )
@@ -124,29 +76,102 @@ margin_right = 484.0
 margin_bottom = 274.0
 text = "roll d6"
 
-[node name="melon" parent="." instance=ExtResource( 9 )]
+[node name="enemy container" type="Node2D" parent="."]
+
+[node name="melon" parent="enemy container" instance=ExtResource( 9 )]
 position = Vector2( 539, 195 )
 
-[node name="stats" type="Node" parent="melon"]
+[node name="stats" type="Node" parent="enemy container/melon"]
 script = ExtResource( 10 )
 
-[node name="onion" type="KinematicBody2D" parent="."]
-position = Vector2( 248, 48 )
-__meta__ = {
-"_edit_group_": true
-}
+[node name="melon2" parent="enemy container" instance=ExtResource( 9 )]
+position = Vector2( 210, 399 )
 
-[node name="Sprite" type="Sprite" parent="onion"]
-scale = Vector2( 0.25, 0.25 )
-texture = SubResource( 7 )
-hframes = 2
+[node name="stats" type="Node" parent="enemy container/melon2"]
+script = ExtResource( 10 )
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="onion"]
-position = Vector2( -4, 5 )
-shape = SubResource( 4 )
+[node name="melon3" parent="enemy container" instance=ExtResource( 9 )]
+position = Vector2( 276, 219 )
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="onion"]
-anims/RESET = SubResource( 8 )
-anims/idle = SubResource( 9 )
+[node name="stats" type="Node" parent="enemy container/melon3"]
+script = ExtResource( 10 )
+
+[node name="melon4" parent="enemy container" instance=ExtResource( 9 )]
+position = Vector2( 673, 671 )
+
+[node name="stats" type="Node" parent="enemy container/melon4"]
+script = ExtResource( 10 )
+
+[node name="melon5" parent="enemy container" instance=ExtResource( 9 )]
+position = Vector2( 891, 657 )
+
+[node name="stats" type="Node" parent="enemy container/melon5"]
+script = ExtResource( 10 )
+
+[node name="melon6" parent="enemy container" instance=ExtResource( 9 )]
+position = Vector2( 306, 697 )
+
+[node name="stats" type="Node" parent="enemy container/melon6"]
+script = ExtResource( 10 )
+
+[node name="enemy" parent="enemy container" instance=ExtResource( 7 )]
+position = Vector2( -144, 155 )
+
+[node name="stats" type="Node" parent="enemy container/enemy"]
+script = ExtResource( 11 )
+
+[node name="enemy2" parent="enemy container" instance=ExtResource( 7 )]
+position = Vector2( -635, -52 )
+
+[node name="stats" type="Node" parent="enemy container/enemy2"]
+script = ExtResource( 11 )
+
+[node name="enemy3" parent="enemy container" instance=ExtResource( 7 )]
+position = Vector2( -209, -233 )
+
+[node name="stats" type="Node" parent="enemy container/enemy3"]
+script = ExtResource( 11 )
+
+[node name="onion" parent="enemy container" instance=ExtResource( 8 )]
+position = Vector2( -13, 334 )
+
+[node name="stats" type="Node" parent="enemy container/onion"]
+script = ExtResource( 12 )
+
+[node name="onion2" parent="enemy container" instance=ExtResource( 8 )]
+position = Vector2( 764, 1002 )
+
+[node name="stats" type="Node" parent="enemy container/onion2"]
+script = ExtResource( 12 )
+
+[node name="onion6" parent="enemy container" instance=ExtResource( 8 )]
+position = Vector2( 1201, 645 )
+
+[node name="stats" type="Node" parent="enemy container/onion6"]
+script = ExtResource( 12 )
+
+[node name="onion7" parent="enemy container" instance=ExtResource( 8 )]
+position = Vector2( -109, 780 )
+
+[node name="stats" type="Node" parent="enemy container/onion7"]
+script = ExtResource( 12 )
+
+[node name="onion3" parent="enemy container" instance=ExtResource( 8 )]
+position = Vector2( -374, 771 )
+
+[node name="stats" type="Node" parent="enemy container/onion3"]
+script = ExtResource( 12 )
+
+[node name="onion4" parent="enemy container" instance=ExtResource( 8 )]
+position = Vector2( -486, 356 )
+
+[node name="stats" type="Node" parent="enemy container/onion4"]
+script = ExtResource( 12 )
+
+[node name="onion5" parent="enemy container" instance=ExtResource( 8 )]
+position = Vector2( -486, 356 )
+
+[node name="stats" type="Node" parent="enemy container/onion5"]
+script = ExtResource( 12 )
 
 [connection signal="pressed" from="Button" to="." method="_on_Button_pressed"]
