@@ -16,14 +16,15 @@ extents = Vector2( 32, 32 )
 position = Vector2( 208, 104 )
 script = ExtResource( 2 )
 
-[node name="facemap" type="Sprite" parent="."]
-position = Vector2( 0, 1 )
+[node name="atkfacemap" type="Sprite" parent="."]
+modulate = Color( 1, 0, 0, 1 )
+position = Vector2( -16, -6 )
 texture = SubResource( 1 )
 __meta__ = {
 "_edit_group_": true
 }
 
-[node name="side 1" type="Area2D" parent="facemap"]
+[node name="side 1" type="Area2D" parent="atkfacemap"]
 position = Vector2( -96, 0 )
 collision_layer = 4
 collision_mask = 2
@@ -31,10 +32,10 @@ __meta__ = {
 "_edit_group_": true
 }
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="facemap/side 1"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="atkfacemap/side 1"]
 shape = SubResource( 2 )
 
-[node name="side 2" type="Area2D" parent="facemap"]
+[node name="side 2" type="Area2D" parent="atkfacemap"]
 position = Vector2( -32, 0 )
 collision_layer = 4
 collision_mask = 2
@@ -42,10 +43,10 @@ __meta__ = {
 "_edit_group_": true
 }
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="facemap/side 2"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="atkfacemap/side 2"]
 shape = SubResource( 2 )
 
-[node name="side 3" type="Area2D" parent="facemap"]
+[node name="side 3" type="Area2D" parent="atkfacemap"]
 position = Vector2( 32, 0 )
 collision_layer = 4
 collision_mask = 2
@@ -53,10 +54,10 @@ __meta__ = {
 "_edit_group_": true
 }
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="facemap/side 3"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="atkfacemap/side 3"]
 shape = SubResource( 2 )
 
-[node name="side 4" type="Area2D" parent="facemap"]
+[node name="side 4" type="Area2D" parent="atkfacemap"]
 position = Vector2( 32, -64 )
 collision_layer = 4
 collision_mask = 2
@@ -64,10 +65,10 @@ __meta__ = {
 "_edit_group_": true
 }
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="facemap/side 4"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="atkfacemap/side 4"]
 shape = SubResource( 2 )
 
-[node name="side 5" type="Area2D" parent="facemap"]
+[node name="side 5" type="Area2D" parent="atkfacemap"]
 position = Vector2( 96, 0 )
 collision_layer = 4
 collision_mask = 2
@@ -75,10 +76,10 @@ __meta__ = {
 "_edit_group_": true
 }
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="facemap/side 5"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="atkfacemap/side 5"]
 shape = SubResource( 2 )
 
-[node name="side 6" type="Area2D" parent="facemap"]
+[node name="side 6" type="Area2D" parent="atkfacemap"]
 position = Vector2( 32, 64 )
 collision_layer = 4
 collision_mask = 2
@@ -86,26 +87,124 @@ __meta__ = {
 "_edit_group_": true
 }
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="facemap/side 6"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="atkfacemap/side 6"]
+shape = SubResource( 2 )
+
+[node name="deffacemap" type="Sprite" parent="."]
+modulate = Color( 0, 0.0627451, 1, 1 )
+position = Vector2( 304, -6 )
+texture = SubResource( 1 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="side 1" type="Area2D" parent="deffacemap"]
+position = Vector2( -96, 0 )
+collision_layer = 4
+collision_mask = 2
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="deffacemap/side 1"]
+shape = SubResource( 2 )
+
+[node name="side 2" type="Area2D" parent="deffacemap"]
+position = Vector2( -32, 0 )
+collision_layer = 4
+collision_mask = 2
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="deffacemap/side 2"]
+shape = SubResource( 2 )
+
+[node name="side 3" type="Area2D" parent="deffacemap"]
+position = Vector2( 32, 0 )
+collision_layer = 4
+collision_mask = 2
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="deffacemap/side 3"]
+shape = SubResource( 2 )
+
+[node name="side 4" type="Area2D" parent="deffacemap"]
+position = Vector2( 32, -64 )
+collision_layer = 4
+collision_mask = 2
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="deffacemap/side 4"]
+shape = SubResource( 2 )
+
+[node name="side 5" type="Area2D" parent="deffacemap"]
+position = Vector2( 96, 0 )
+collision_layer = 4
+collision_mask = 2
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="deffacemap/side 5"]
+shape = SubResource( 2 )
+
+[node name="side 6" type="Area2D" parent="deffacemap"]
+position = Vector2( 32, 64 )
+collision_layer = 4
+collision_mask = 2
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="deffacemap/side 6"]
 shape = SubResource( 2 )
 
 [node name="dot" parent="." instance=ExtResource( 3 )]
 
-[node name="fold" type="Button" parent="."]
-visible = false
-margin_left = -112.0
-margin_top = 64.0
-margin_right = -100.0
-margin_bottom = 84.0
-text = "fold"
+[node name="dot2" parent="." instance=ExtResource( 3 )]
+position = Vector2( 48, -16 )
 
-[node name="next" type="Button" parent="."]
-visible = false
-margin_left = -176.0
-margin_top = 65.0
-margin_right = -136.0
-margin_bottom = 85.0
-text = "roll"
+[node name="dot3" parent="." instance=ExtResource( 3 )]
+position = Vector2( -16, -7 )
 
-[connection signal="pressed" from="fold" to="." method="fold"]
-[connection signal="pressed" from="next" to="." method="rollem"]
+[node name="dot4" parent="." instance=ExtResource( 3 )]
+position = Vector2( -80, -8 )
+
+[node name="dot5" parent="." instance=ExtResource( 3 )]
+position = Vector2( 25, -56 )
+
+[node name="dot6" parent="." instance=ExtResource( 3 )]
+position = Vector2( 88, -15 )
+
+[node name="dot7" parent="." instance=ExtResource( 3 )]
+position = Vector2( 32, 16 )
+
+[node name="dot8" parent="." instance=ExtResource( 3 )]
+position = Vector2( 48, 65 )
+
+[node name="dot9" parent="." instance=ExtResource( 3 )]
+position = Vector2( 17, 48 )
+
+[node name="dot10" parent="." instance=ExtResource( 3 )]
+position = Vector2( -104, 24 )
+
+[node name="Label" type="Label" parent="."]
+margin_left = -104.0
+margin_top = -80.0
+margin_right = -64.0
+margin_bottom = -66.0
+text = "Attack"
+align = 1
+
+[node name="Label2" type="Label" parent="."]
+margin_left = 216.0
+margin_top = -80.0
+margin_right = 269.0
+margin_bottom = -66.0
+text = "Defense"
+align = 1

@@ -149,7 +149,7 @@ format = 1
 tile_data = PoolIntArray( 327703, 3, 0, 327704, 4, 0, 327705, 4, 0, 327706, 4, 0, 327707, 5, 0, 393239, 6, 0, 393243, 8, 0, 458775, 0, 0, 458776, 1, 0, 458777, 1, 0, 458778, 1, 0, 458779, 2, 0 )
 
 [node name="character" parent="." instance=ExtResource( 5 )]
-position = Vector2( 648, 274 )
+position = Vector2( 644, 275 )
 
 [node name="dice" type="Sprite" parent="."]
 visible = false

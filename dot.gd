@@ -7,11 +7,25 @@ extends Sprite
 
 var moving
 var bounce = 3
+var weight = 1
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	moving=false
+	updateText()
 	pass # Replace with function body.
+
+func levelUp():
+	weight +=1
+	updateText()
+
+func setWeight(w):
+	weight=w
+	updateText()
+	
+
+func updateText():
+	$Label.text=str(weight)
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -27,6 +41,8 @@ func _process(delta):
 
 	if moving:
 		self.position-=(self.get_global_position()-self.get_global_mouse_position())
+
+
 
 
 func _on_Area2D_input_event(viewport, event, shape_idx):

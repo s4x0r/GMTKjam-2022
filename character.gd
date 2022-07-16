@@ -26,7 +26,11 @@ func hide():
 	pass
 
 func roll():
-	$"Camera2D/ui/roll indicator".text=str($"Camera2D/ui/dice window/unfold".roll())
+	var atk=$"Camera2D/ui/dice window/unfold".atk()
+
+	$hitzone.get_overlapping_bodies()
+
+	$"Camera2D/ui/roll indicator".text=str(atk)
 	yield(get_tree().create_timer(time), "timeout")
 	$"Camera2D/ui/roll indicator".text=""
 	pass
