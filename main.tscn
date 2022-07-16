@@ -1,16 +1,12 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://randomizer.gd" type="Script" id=1]
 [ext_resource path="res://dice.gd" type="Script" id=2]
 [ext_resource path="res://main.gd" type="Script" id=3]
 [ext_resource path="res://assets/qea14rgp.bmp" type="Texture" id=4]
-[ext_resource path="res://character.gd" type="Script" id=5]
+[ext_resource path="res://character.tscn" type="PackedScene" id=5]
 [ext_resource path="res://top down.tres" type="TileSet" id=6]
 [ext_resource path="res://walls.tres" type="TileSet" id=7]
-[ext_resource path="res://assets/rpg-pack/chars/gabe/gabe-idle-run.png" type="Texture" id=8]
-
-[sub_resource type="CircleShape2D" id=3]
-radius = 24.0
 
 [sub_resource type="Animation" id=1]
 length = 0.001
@@ -62,23 +58,7 @@ cell_size = Vector2( 32, 32 )
 format = 1
 tile_data = PoolIntArray( 327703, 3, 0, 327704, 4, 0, 327705, 4, 0, 327706, 4, 0, 327707, 5, 0, 393239, 6, 0, 393243, 8, 0, 458775, 0, 0, 458776, 1, 0, 458777, 1, 0, 458778, 1, 0, 458779, 2, 0 )
 
-[node name="character" type="KinematicBody2D" parent="."]
-position = Vector2( 624, 296 )
-script = ExtResource( 5 )
-__meta__ = {
-"_edit_group_": true
-}
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="character"]
-shape = SubResource( 3 )
-
-[node name="Sprite" type="Sprite" parent="character"]
-position = Vector2( 9.53674e-07, -4.76837e-07 )
-scale = Vector2( 2, 2 )
-texture = ExtResource( 8 )
-hframes = 7
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="character"]
+[node name="character" parent="." instance=ExtResource( 5 )]
 
 [node name="dice" type="Sprite" parent="."]
 position = Vector2( 432, 176 )

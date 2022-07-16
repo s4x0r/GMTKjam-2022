@@ -18,7 +18,7 @@ atlas = ExtResource( 1 )
 region = Rect2( 0, 128, 64, 64 )
 
 [sub_resource type="CircleShape2D" id=4]
-radius = 30.1176
+radius = 30.1177
 
 [node name="unfold" type="Node2D"]
 position = Vector2( 208, 104 )
@@ -92,7 +92,7 @@ __meta__ = {
 shape = SubResource( 2 )
 
 [node name="dot" type="Sprite" parent="."]
-position = Vector2( -40, -8 )
+position = Vector2( 16, -16 )
 scale = Vector2( 0.265625, 0.265625 )
 texture = SubResource( 3 )
 script = ExtResource( 3 )
@@ -102,27 +102,13 @@ __meta__ = {
 
 [node name="Area2D" type="Area2D" parent="dot"]
 collision_layer = 2
+collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="dot/Area2D"]
 shape = SubResource( 4 )
 
-[node name="dot2" type="Sprite" parent="."]
-position = Vector2( -80, 8 )
-scale = Vector2( 0.265625, 0.265625 )
-texture = SubResource( 3 )
-script = ExtResource( 3 )
-__meta__ = {
-"_edit_group_": true
-}
-
-[node name="Area2D" type="Area2D" parent="dot2"]
-collision_layer = 2
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="dot2/Area2D"]
-shape = SubResource( 4 )
-
 [node name="dot3" type="Sprite" parent="."]
-position = Vector2( 24, 16 )
+position = Vector2( -24, -8 )
 scale = Vector2( 0.265625, 0.265625 )
 texture = SubResource( 3 )
 script = ExtResource( 3 )
@@ -132,12 +118,13 @@ __meta__ = {
 
 [node name="Area2D" type="Area2D" parent="dot3"]
 collision_layer = 2
+collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="dot3/Area2D"]
 shape = SubResource( 4 )
 
 [node name="dot4" type="Sprite" parent="."]
-position = Vector2( 24, -8 )
+position = Vector2( 48, 16 )
 scale = Vector2( 0.265625, 0.265625 )
 texture = SubResource( 3 )
 script = ExtResource( 3 )
@@ -147,12 +134,13 @@ __meta__ = {
 
 [node name="Area2D" type="Area2D" parent="dot4"]
 collision_layer = 2
+collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="dot4/Area2D"]
 shape = SubResource( 4 )
 
 [node name="dot5" type="Sprite" parent="."]
-position = Vector2( 80, -8 )
+position = Vector2( 48, -48 )
 scale = Vector2( 0.265625, 0.265625 )
 texture = SubResource( 3 )
 script = ExtResource( 3 )
@@ -162,12 +150,13 @@ __meta__ = {
 
 [node name="Area2D" type="Area2D" parent="dot5"]
 collision_layer = 2
+collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="dot5/Area2D"]
 shape = SubResource( 4 )
 
 [node name="dot6" type="Sprite" parent="."]
-position = Vector2( 112, 17 )
+position = Vector2( 40, -72 )
 scale = Vector2( 0.265625, 0.265625 )
 texture = SubResource( 3 )
 script = ExtResource( 3 )
@@ -177,12 +166,13 @@ __meta__ = {
 
 [node name="Area2D" type="Area2D" parent="dot6"]
 collision_layer = 2
+collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="dot6/Area2D"]
 shape = SubResource( 4 )
 
 [node name="dot7" type="Sprite" parent="."]
-position = Vector2( 104, -16 )
+position = Vector2( 88, -7 )
 scale = Vector2( 0.265625, 0.265625 )
 texture = SubResource( 3 )
 script = ExtResource( 3 )
@@ -192,12 +182,13 @@ __meta__ = {
 
 [node name="Area2D" type="Area2D" parent="dot7"]
 collision_layer = 2
+collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="dot7/Area2D"]
 shape = SubResource( 4 )
 
 [node name="dot8" type="Sprite" parent="."]
-position = Vector2( 56, 56 )
+position = Vector2( 112, -16 )
 scale = Vector2( 0.265625, 0.265625 )
 texture = SubResource( 3 )
 script = ExtResource( 3 )
@@ -207,12 +198,13 @@ __meta__ = {
 
 [node name="Area2D" type="Area2D" parent="dot8"]
 collision_layer = 2
+collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="dot8/Area2D"]
 shape = SubResource( 4 )
 
 [node name="dot9" type="Sprite" parent="."]
-position = Vector2( 24, 80 )
+position = Vector2( 48, 56 )
 scale = Vector2( 0.265625, 0.265625 )
 texture = SubResource( 3 )
 script = ExtResource( 3 )
@@ -222,12 +214,13 @@ __meta__ = {
 
 [node name="Area2D" type="Area2D" parent="dot9"]
 collision_layer = 2
+collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="dot9/Area2D"]
 shape = SubResource( 4 )
 
 [node name="dot10" type="Sprite" parent="."]
-position = Vector2( 24, -64 )
+position = Vector2( 16, 80 )
 scale = Vector2( 0.265625, 0.265625 )
 texture = SubResource( 3 )
 script = ExtResource( 3 )
@@ -237,12 +230,13 @@ __meta__ = {
 
 [node name="Area2D" type="Area2D" parent="dot10"]
 collision_layer = 2
+collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="dot10/Area2D"]
 shape = SubResource( 4 )
 
-[node name="dot13" type="Sprite" parent="."]
-position = Vector2( 24, -64 )
+[node name="dot2" type="Sprite" parent="."]
+position = Vector2( -80, -7 )
 scale = Vector2( 0.265625, 0.265625 )
 texture = SubResource( 3 )
 script = ExtResource( 3 )
@@ -250,43 +244,15 @@ __meta__ = {
 "_edit_group_": true
 }
 
-[node name="Area2D" type="Area2D" parent="dot13"]
+[node name="Area2D" type="Area2D" parent="dot2"]
 collision_layer = 2
+collision_mask = 2
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="dot13/Area2D"]
-shape = SubResource( 4 )
-
-[node name="dot11" type="Sprite" parent="."]
-position = Vector2( 40, -80 )
-scale = Vector2( 0.265625, 0.265625 )
-texture = SubResource( 3 )
-script = ExtResource( 3 )
-__meta__ = {
-"_edit_group_": true
-}
-
-[node name="Area2D" type="Area2D" parent="dot11"]
-collision_layer = 2
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="dot11/Area2D"]
-shape = SubResource( 4 )
-
-[node name="dot12" type="Sprite" parent="."]
-position = Vector2( 48, -56 )
-scale = Vector2( 0.265625, 0.265625 )
-texture = SubResource( 3 )
-script = ExtResource( 3 )
-__meta__ = {
-"_edit_group_": true
-}
-
-[node name="Area2D" type="Area2D" parent="dot12"]
-collision_layer = 2
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="dot12/Area2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="dot2/Area2D"]
 shape = SubResource( 4 )
 
 [node name="fold" type="Button" parent="."]
+visible = false
 margin_left = -112.0
 margin_top = 64.0
 margin_right = -100.0
@@ -294,6 +260,7 @@ margin_bottom = 84.0
 text = "fold"
 
 [node name="next" type="Button" parent="."]
+visible = false
 margin_left = -176.0
 margin_top = 65.0
 margin_right = -136.0
@@ -301,7 +268,6 @@ margin_bottom = 85.0
 text = "roll"
 
 [connection signal="input_event" from="dot/Area2D" to="dot" method="_on_Area2D_input_event"]
-[connection signal="input_event" from="dot2/Area2D" to="dot2" method="_on_Area2D_input_event"]
 [connection signal="input_event" from="dot3/Area2D" to="dot3" method="_on_Area2D_input_event"]
 [connection signal="input_event" from="dot4/Area2D" to="dot4" method="_on_Area2D_input_event"]
 [connection signal="input_event" from="dot5/Area2D" to="dot5" method="_on_Area2D_input_event"]
@@ -310,8 +276,6 @@ text = "roll"
 [connection signal="input_event" from="dot8/Area2D" to="dot8" method="_on_Area2D_input_event"]
 [connection signal="input_event" from="dot9/Area2D" to="dot9" method="_on_Area2D_input_event"]
 [connection signal="input_event" from="dot10/Area2D" to="dot10" method="_on_Area2D_input_event"]
-[connection signal="input_event" from="dot13/Area2D" to="dot13" method="_on_Area2D_input_event"]
-[connection signal="input_event" from="dot11/Area2D" to="dot11" method="_on_Area2D_input_event"]
-[connection signal="input_event" from="dot12/Area2D" to="dot12" method="_on_Area2D_input_event"]
+[connection signal="input_event" from="dot2/Area2D" to="dot2" method="_on_Area2D_input_event"]
 [connection signal="pressed" from="fold" to="." method="fold"]
 [connection signal="pressed" from="next" to="." method="rollem"]

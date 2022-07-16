@@ -12,8 +12,9 @@ var rng = RandomNumberGenerator.new()
 
 
 func fold():
-	for i in range(1,6):
-		sides[i-1]=get_node("facemap/side "+str(i)).get_overlapping_areas().size()
+	for i in range(0,6):
+		print(i)
+		sides[i]=get_node("facemap/side "+str(i+1)).get_overlapping_areas().size()
 	print(sides)
 
 func next():
@@ -23,9 +24,11 @@ func next():
 	$ViewportContainer/Viewport/camera.position-=($ViewportContainer/Viewport/camera.get_global_position()-get_node("facemap/side "+face).get_global_position())
 
 func roll():
+	fold()
 	return sides[rng.randi_range(0, sides.size()-1)]
 
 func rollem():
+	
 	print(roll())
 
 

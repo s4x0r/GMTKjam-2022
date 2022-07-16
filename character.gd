@@ -11,13 +11,25 @@ var stats = {}
 const WALK_SPEED = 200
 
 var velocity = Vector2()
-
+var time = 1
 
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	pass # Replace with function body.
 
+func hide():
+	if $"Camera2D/ui/dice window".visible:
+		$AnimationPlayer.play("hide ui")
+	else:
+		$AnimationPlayer.play("show ui")
+	pass
+
+func roll():
+	$"Camera2D/ui/roll indicator".text=str($"Camera2D/ui/dice window/unfold".roll())
+	yield(get_tree().create_timer(time), "timeout")
+	$"Camera2D/ui/roll indicator".text=""
+	pass
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(delta):

@@ -6,6 +6,8 @@ extends Sprite
 # var b = "text"
 
 var moving
+var bounce = 3
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	moving=false
@@ -16,9 +18,16 @@ func _ready():
 func _process(delta):
 	if !Input.is_action_pressed("click"):
 		moving=false
+	for i in $Area2D.get_overlapping_areas():
+		if i.name.substr(0, 4) != "side":
+			moving=false
+			var vect=i.get_global_position()-self.get_global_position()
+			vect = vect.normalized()
+			self.position=position-vect*2
+
 	if moving:
 		self.position-=(self.get_global_position()-self.get_global_mouse_position())
-#	pass
+
 
 func _on_Area2D_input_event(viewport, event, shape_idx):
 	#print(event)
