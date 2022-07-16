@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=2]
+[gd_scene load_steps=16 format=2]
 
 [ext_resource path="res://char/randomizer.gd" type="Script" id=1]
 [ext_resource path="res://char/dice.gd" type="Script" id=2]
@@ -12,6 +12,7 @@
 [ext_resource path="res://enemies/melon lv1.gd" type="Script" id=10]
 [ext_resource path="res://enemies/celery lv10.gd" type="Script" id=11]
 [ext_resource path="res://enemies/onion lv5.gd" type="Script" id=12]
+[ext_resource path="res://dots/dot.tscn" type="PackedScene" id=13]
 
 [sub_resource type="Animation" id=1]
 length = 0.001
@@ -173,5 +174,8 @@ position = Vector2( -486, 356 )
 
 [node name="stats" type="Node" parent="enemy container/onion5"]
 script = ExtResource( 12 )
+
+[node name="dot" parent="." instance=ExtResource( 13 )]
+position = Vector2( 678, 69 )
 
 [connection signal="pressed" from="Button" to="." method="_on_Button_pressed"]

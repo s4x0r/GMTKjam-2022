@@ -1,17 +1,11 @@
 extends KinematicBody2D
 
-
-# Declare member variables here. Examples:
-# var a = 2
-# var b = "text"
-
-
-var hp
-
 const WALK_SPEED = 200
 
+var hp
 var velocity = Vector2()
 var time = 1
+onready var h = preload("res://dots/dot.tscn")
 
 signal dead
 
@@ -23,6 +17,13 @@ func _ready():
 	$DEFindicator.text=""
 	hp = 100
 	pass # Replace with function body.
+
+
+func reparent(child: Node, new_parent: Node):
+	var old_parent = child.get_parent()
+	old_parent.remove_child(child)
+	new_parent.give(child)
+
 
 func hide():
 	if $"Camera2D/ui/dice window".visible:
@@ -77,16 +78,30 @@ func updateHP():
 		emit_signal("dead")
 	pass
 
+
+func makedot(weight):
+	var dot = h.instance()
+	dot.weight=weight
+	$"Camera2D/ui/dice window/DOTcontainer".add_child(dot)
+	dot.position=Vector2(169, 196)
+
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(delta):
 	updateHP()
 
 	velocity += Vector2(delta, delta)
+
+
 	
 	var areas = $hitzone.get_overlapping_areas()
 	for i in areas:
 		if i.name =="dotarea":
-			#add_child(i)
+			print(name)
+			var dt = i.get_parent() #detected dot
+
+			makedot(dt.weight)
+			dt.call_deferred("free")
+
 			pass
 
 	var inpt =Vector2(
@@ -94,7 +109,9 @@ func _physics_process(delta):
 		int(Input.is_action_pressed("char_down"))-int(Input.is_action_pressed("char_up"))
 	)	
 
-	
+	if Input.is_action_pressed("char_act"):
+		roll()
+
 	if inpt.y !=0:
 		if inpt.y == 1:
 			$AnimationPlayer.play("walk up")
