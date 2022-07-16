@@ -2,11 +2,16 @@
 
 importer="texture"
 type="StreamTexture"
-valid=false
+path="res://.import/bw tile.png-a8f6380140189ae296c558a269de30e4.stex"
+metadata={
+"vram_texture": false
+}
 
 [deps]
 
-source_file="res://assets/IMG_5923.png"
+source_file="res://assets/bw tile.png"
+dest_files=[ "res://.import/bw tile.png-a8f6380140189ae296c558a269de30e4.stex" ]
+
 [params]
 
 compress/mode=0

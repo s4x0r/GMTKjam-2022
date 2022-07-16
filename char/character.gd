@@ -86,6 +86,10 @@ func makedot(weight):
 	dot.position=Vector2(169, 196)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
+func _input(event):
+	if event.is_action_pressed("char_act"):
+		roll()
+
 func _physics_process(delta):
 	updateHP()
 
@@ -105,8 +109,8 @@ func _physics_process(delta):
 			pass
 
 
-	if Input.is_action_pressed("char_act"):
-		roll()
+	#if Input.is_action_pressed("char_act"):
+	#	roll()
 
 
 	velocity += Vector2(delta, delta)

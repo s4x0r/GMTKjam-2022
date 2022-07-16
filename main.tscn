@@ -56,9 +56,6 @@ script = ExtResource( 3 )
 [node name="randomizer" type="Node2D" parent="."]
 script = ExtResource( 1 )
 
-[node name="character" parent="." instance=ExtResource( 5 )]
-position = Vector2( 608, 241 )
-
 [node name="dice" type="Sprite" parent="."]
 visible = false
 position = Vector2( 432, 176 )
@@ -221,5 +218,8 @@ script = ExtResource( 15 )
 
 [node name="dot" parent="." instance=ExtResource( 13 )]
 position = Vector2( 678, 69 )
+
+[node name="character" parent="." instance=ExtResource( 5 )]
+position = Vector2( 608, 241 )
 
 [connection signal="pressed" from="Button" to="." method="_on_Button_pressed"]

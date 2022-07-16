@@ -28,12 +28,22 @@ func next():
 
 func atk():
 	var sides=fold("atk")
-	return sides[rng.randi_range(0, sides.size()-1)]
+	var rand=rng.randi_range(0, sides.size()-1)
+	$rollindicator.global_position=get_node("atkfacemap/side "+str(rand+1)).global_position
+	$rollindicator.visible=true
+	$Timer.start(1)
+	return sides[rand]
 
 func def():
 	var sides=fold("def")
-	return sides[rng.randi_range(0, sides.size()-1)]
+	var rand=rng.randi_range(0, sides.size()-1)
+	$rollindicator.global_position=get_node("deffacemap/side "+str(rand+1)).global_position
+	$rollindicator.visible=true
+	$Timer.start(1)
+	return sides[rand]
 
+func timeout():
+	$rollindicator.visible=false
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
