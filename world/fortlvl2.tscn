@@ -11,6 +11,10 @@
 [ext_resource path="res://enemies/melon.tscn" type="PackedScene" id=9]
 
 [node name="Node2D" type="Node2D"]
+position = Vector2( -192, -232 )
+__meta__ = {
+"_edit_group_": true
+}
 
 [node name="BG" type="TileMap" parent="."]
 tile_set = ExtResource( 1 )

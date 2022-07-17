@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://world/top down.tres" type="TileSet" id=1]
 [ext_resource path="res://world/walls.tres" type="TileSet" id=2]
@@ -8,18 +8,25 @@
 [ext_resource path="res://assets/Pixel Art Top Down/TX Struct.png" type="Texture" id=6]
 [ext_resource path="res://world/chest lv1.gd" type="Script" id=7]
 [ext_resource path="res://enemies/chest.tscn" type="PackedScene" id=8]
-
-[sub_resource type="AtlasTexture" id=1]
-flags = 4
-atlas = ExtResource( 6 )
-region = Rect2( 32, 32, 64, 96 )
+[ext_resource path="res://assets/sounds/tunnelsVG.wav" type="AudioStream" id=9]
+[ext_resource path="res://world/bgm.gd" type="Script" id=10]
 
 [sub_resource type="AtlasTexture" id=2]
 flags = 4
 atlas = ExtResource( 6 )
 region = Rect2( 416, 128, 64, 64 )
 
+[sub_resource type="AtlasTexture" id=1]
+flags = 4
+atlas = ExtResource( 6 )
+region = Rect2( 32, 32, 64, 96 )
+
 [node name="world" type="Node2D"]
+
+[node name="bgm" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 9 )
+volume_db = -10.0
+script = ExtResource( 10 )
 
 [node name="bg" type="TileMap" parent="."]
 tile_set = ExtResource( 1 )
@@ -42,24 +49,26 @@ position = Vector2( 747, -575 )
 [node name="spawnpoint" type="Position2D" parent="."]
 position = Vector2( -65, -188 )
 
-[node name="fort stairs" type="Sprite" parent="."]
-position = Vector2( 1126, 535 )
-scale = Vector2( 2, 2 )
-texture = SubResource( 1 )
-
-[node name="loadingzone" parent="fort stairs" instance=ExtResource( 5 )]
-position = Vector2( 1, 0 )
-scale = Vector2( 0.964885, 3.50429 )
-
 [node name="Sprite2" type="Sprite" parent="."]
 position = Vector2( 1127.5, 380.5 )
 scale = Vector2( 1.95313, 1.95313 )
 texture = SubResource( 2 )
 
-[node name="chest" parent="." instance=ExtResource( 8 )]
+[node name="stuffcontainer" type="Node2D" parent="."]
+
+[node name="chest" parent="stuffcontainer" instance=ExtResource( 8 )]
 position = Vector2( 802, 510 )
 
-[node name="stats" type="Node" parent="chest"]
+[node name="stats" type="Node" parent="stuffcontainer/chest"]
 script = ExtResource( 7 )
 
-[connection signal="body_entered" from="fort stairs/loadingzone" to="fort stairs/loadingzone" method="loadScene" flags=3 binds= [ "res://world/fortlvl2.tscn", "spawnpoint" ]]
+[node name="fort stairs" type="Sprite" parent="stuffcontainer"]
+position = Vector2( 1126, 535 )
+scale = Vector2( 2, 2 )
+texture = SubResource( 1 )
+
+[node name="loadingzone" parent="stuffcontainer/fort stairs" instance=ExtResource( 5 )]
+position = Vector2( 1, 0 )
+scale = Vector2( 0.964885, 3.50429 )
+
+[connection signal="body_entered" from="stuffcontainer/fort stairs/loadingzone" to="stuffcontainer/fort stairs/loadingzone" method="loadScene" flags=3 binds= [ "res://world/fortlvl2.tscn", "spawnpoint" ]]

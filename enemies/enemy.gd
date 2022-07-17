@@ -90,19 +90,21 @@ func showdmg(dmg, def):
 	$DEFindicator.text=""
 	pass
 
-
+func die():
+	emit_signal("dead")
+	call_deferred("queue_free")
 
 
 func updateHP():
 	$HPindicator.text=str(hp)
 	if hp<=0:
+		hp=0
 		if hold:
 			var dot = h.instance()
 			dot.weight=hold
 			get_tree().get_root().add_child(dot)
 			dot.position=self.get_global_position()
-		emit_signal("dead")
-		queue_free()
+		$die.play()
 
 	pass
 

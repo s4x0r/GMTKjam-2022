@@ -25,12 +25,16 @@ func reparent(child: Node, new_parent: Node):
 	new_parent.give(child)
 
 
+
 func hide():
 	if $"Camera2D/ui/dice window".visible:
 		$Camera2D/ui/AnimationPlayer.play("hide ui")
 	else:
 		$Camera2D/ui/AnimationPlayer.play("show ui")
 	pass
+
+
+
 
 func roll():
 	var atk=$"Camera2D/ui/dice window/unfold".atk()
@@ -40,7 +44,10 @@ func roll():
 		bodies[0].damage(atk)
 
 	showatk(atk)
+	$slash.play()
 	pass
+
+
 
 func damage(dmg):
 	var def=$"Camera2D/ui/dice window/unfold".def()
@@ -52,6 +59,7 @@ func damage(dmg):
 	showdmg(dmg, def)
 
 	pass
+
 
 func showatk(atk):
 	$ATKindicator.text=str(atk)
@@ -74,8 +82,10 @@ func showdmg(dmg, def):
 
 func updateHP():
 	$HPindicator.text=str(hp)
-	if hp==0:
+	if hp<=0:
+		hp=0
 		emit_signal("dead")
+		$die.play()
 	pass
 
 
@@ -83,12 +93,17 @@ func makedot(weight):
 	var dot = h.instance()
 	dot.weight=weight
 	$"Camera2D/ui/dice window/DOTcontainer".add_child(dot)
-	dot.position=Vector2(169, 196)
+	dot.global_position=$"Camera2D/ui/dice window/unfold".global_position
+	$coin.play()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _input(event):
 	if event.is_action_pressed("char_act"):
 		roll()
+
+
+func _on_die_finished():
+	queue_free()
 
 func _physics_process(delta):
 	updateHP()
