@@ -1,0 +1,268 @@
+[gd_scene load_steps=23 format=2]
+
+[ext_resource path="res://assets/qea14rgp.bmp" type="Texture" id=1]
+[ext_resource path="res://enemies/tomato lv1.gd" type="Script" id=2]
+[ext_resource path="res://enemies/carrot lv15.gd" type="Script" id=3]
+[ext_resource path="res://enemies/melon lv1.gd" type="Script" id=4]
+[ext_resource path="res://enemies/onion lv5.gd" type="Script" id=5]
+[ext_resource path="res://enemies/door lvl5.gd" type="Script" id=6]
+[ext_resource path="res://enemies/celery lv10.gd" type="Script" id=7]
+[ext_resource path="res://enemies/melon.tscn" type="PackedScene" id=8]
+[ext_resource path="res://char/character.tscn" type="PackedScene" id=9]
+[ext_resource path="res://enemies/enemy.tscn" type="PackedScene" id=10]
+[ext_resource path="res://enemies/tomato.tscn" type="PackedScene" id=11]
+[ext_resource path="res://enemies/onion.tscn" type="PackedScene" id=12]
+[ext_resource path="res://enemies/carrot.tscn" type="PackedScene" id=13]
+[ext_resource path="res://enemies/door.tscn" type="PackedScene" id=14]
+[ext_resource path="res://dots/dot.tscn" type="PackedScene" id=15]
+[ext_resource path="res://world/world.tscn" type="PackedScene" id=16]
+[ext_resource path="res://scenes/main.gd" type="Script" id=17]
+[ext_resource path="res://char/randomizer.gd" type="Script" id=18]
+[ext_resource path="res://char/dice.gd" type="Script" id=19]
+
+[sub_resource type="Animation" id=1]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 0 ]
+}
+
+[sub_resource type="Animation" id=2]
+resource_name = "rolling"
+length = 1.5
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1, 1.1, 1.2, 1.3, 1.4 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 0, 1, 3, 5, 3, 2, 1, 4, 2, 3, 2, 5, 0, 3, 3 ]
+}
+
+[sub_resource type="Theme" id=3]
+
+[node name="main" type="Node2D"]
+script = ExtResource( 17 )
+
+[node name="world" parent="." instance=ExtResource( 16 )]
+
+[node name="randomizer" type="Node2D" parent="."]
+script = ExtResource( 18 )
+
+[node name="dice" type="Sprite" parent="."]
+visible = false
+position = Vector2( 432, 176 )
+texture = ExtResource( 1 )
+hframes = 3
+vframes = 2
+script = ExtResource( 19 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="dice"]
+anims/RESET = SubResource( 1 )
+anims/rolling = SubResource( 2 )
+
+[node name="Button" type="Button" parent="."]
+visible = false
+margin_left = 384.0
+margin_top = 224.0
+margin_right = 484.0
+margin_bottom = 274.0
+theme = SubResource( 3 )
+text = "roll d6"
+
+[node name="enemy container" type="Node2D" parent="."]
+
+[node name="melon" parent="enemy container" instance=ExtResource( 8 )]
+position = Vector2( 539, 195 )
+
+[node name="stats" type="Node" parent="enemy container/melon"]
+script = ExtResource( 4 )
+
+[node name="melon2" parent="enemy container" instance=ExtResource( 8 )]
+position = Vector2( 210, 399 )
+
+[node name="stats" type="Node" parent="enemy container/melon2"]
+script = ExtResource( 4 )
+
+[node name="melon3" parent="enemy container" instance=ExtResource( 8 )]
+position = Vector2( 276, 219 )
+
+[node name="stats" type="Node" parent="enemy container/melon3"]
+script = ExtResource( 4 )
+
+[node name="melon4" parent="enemy container" instance=ExtResource( 8 )]
+position = Vector2( 673, 671 )
+
+[node name="stats" type="Node" parent="enemy container/melon4"]
+script = ExtResource( 4 )
+
+[node name="melon5" parent="enemy container" instance=ExtResource( 8 )]
+position = Vector2( 891, 657 )
+
+[node name="stats" type="Node" parent="enemy container/melon5"]
+script = ExtResource( 4 )
+
+[node name="melon6" parent="enemy container" instance=ExtResource( 8 )]
+position = Vector2( 306, 697 )
+
+[node name="stats" type="Node" parent="enemy container/melon6"]
+script = ExtResource( 4 )
+
+[node name="celery" parent="enemy container" instance=ExtResource( 10 )]
+position = Vector2( -144, 155 )
+
+[node name="stats" type="Node" parent="enemy container/celery"]
+script = ExtResource( 7 )
+
+[node name="celery2" parent="enemy container" instance=ExtResource( 10 )]
+position = Vector2( -635, -52 )
+
+[node name="stats" type="Node" parent="enemy container/celery2"]
+script = ExtResource( 7 )
+
+[node name="celery3" parent="enemy container" instance=ExtResource( 10 )]
+position = Vector2( -209, -233 )
+
+[node name="stats" type="Node" parent="enemy container/celery3"]
+script = ExtResource( 7 )
+
+[node name="onion" parent="enemy container" instance=ExtResource( 12 )]
+position = Vector2( -13, 334 )
+
+[node name="stats" type="Node" parent="enemy container/onion"]
+script = ExtResource( 5 )
+
+[node name="onion2" parent="enemy container" instance=ExtResource( 12 )]
+position = Vector2( 764, 1002 )
+
+[node name="stats" type="Node" parent="enemy container/onion2"]
+script = ExtResource( 5 )
+
+[node name="onion6" parent="enemy container" instance=ExtResource( 12 )]
+position = Vector2( 1201, 645 )
+
+[node name="stats" type="Node" parent="enemy container/onion6"]
+script = ExtResource( 5 )
+
+[node name="onion7" parent="enemy container" instance=ExtResource( 12 )]
+position = Vector2( -109, 780 )
+
+[node name="stats" type="Node" parent="enemy container/onion7"]
+script = ExtResource( 5 )
+
+[node name="onion3" parent="enemy container" instance=ExtResource( 12 )]
+position = Vector2( -374, 771 )
+
+[node name="stats" type="Node" parent="enemy container/onion3"]
+script = ExtResource( 5 )
+
+[node name="onion4" parent="enemy container" instance=ExtResource( 12 )]
+position = Vector2( -486, 356 )
+
+[node name="stats" type="Node" parent="enemy container/onion4"]
+script = ExtResource( 5 )
+
+[node name="onion5" parent="enemy container" instance=ExtResource( 12 )]
+position = Vector2( -486, 356 )
+
+[node name="stats" type="Node" parent="enemy container/onion5"]
+script = ExtResource( 5 )
+
+[node name="tomato" parent="enemy container" instance=ExtResource( 11 )]
+position = Vector2( 295, 1018 )
+
+[node name="stats" type="Node" parent="enemy container/tomato"]
+script = ExtResource( 2 )
+
+[node name="tomato2" parent="enemy container" instance=ExtResource( 11 )]
+position = Vector2( 644, 917 )
+
+[node name="stats" type="Node" parent="enemy container/tomato2"]
+script = ExtResource( 2 )
+
+[node name="tomato3" parent="enemy container" instance=ExtResource( 11 )]
+position = Vector2( -147, 438 )
+
+[node name="stats" type="Node" parent="enemy container/tomato3"]
+script = ExtResource( 2 )
+
+[node name="tomato4" parent="enemy container" instance=ExtResource( 11 )]
+position = Vector2( 363, 13 )
+
+[node name="stats" type="Node" parent="enemy container/tomato4"]
+script = ExtResource( 2 )
+
+[node name="tomato5" parent="enemy container" instance=ExtResource( 11 )]
+position = Vector2( 995, -55 )
+
+[node name="stats" type="Node" parent="enemy container/tomato5"]
+script = ExtResource( 2 )
+
+[node name="tomato6" parent="enemy container" instance=ExtResource( 11 )]
+position = Vector2( 1290, 134 )
+
+[node name="stats" type="Node" parent="enemy container/tomato6"]
+script = ExtResource( 2 )
+
+[node name="tomato7" parent="enemy container" instance=ExtResource( 11 )]
+position = Vector2( 1312, 386 )
+
+[node name="stats" type="Node" parent="enemy container/tomato7"]
+script = ExtResource( 2 )
+
+[node name="carrot" parent="enemy container" instance=ExtResource( 13 )]
+position = Vector2( -1615, -402 )
+
+[node name="stats" type="Node" parent="enemy container/carrot"]
+script = ExtResource( 3 )
+
+[node name="door" parent="enemy container" instance=ExtResource( 14 )]
+position = Vector2( -1501, -240 )
+
+[node name="stats" type="Node" parent="enemy container/door"]
+script = ExtResource( 6 )
+
+[node name="carrot2" parent="enemy container" instance=ExtResource( 10 )]
+position = Vector2( -1746, -410 )
+
+[node name="stats" type="Node" parent="enemy container/carrot2"]
+script = ExtResource( 3 )
+
+[node name="melon7" parent="enemy container" instance=ExtResource( 8 )]
+position = Vector2( -1493, -416 )
+
+[node name="stats" type="Node" parent="enemy container/melon7"]
+script = ExtResource( 4 )
+
+[node name="onion8" parent="enemy container" instance=ExtResource( 12 )]
+position = Vector2( -1626, -245 )
+
+[node name="stats" type="Node" parent="enemy container/onion8"]
+script = ExtResource( 5 )
+
+[node name="tomato8" parent="enemy container" instance=ExtResource( 11 )]
+position = Vector2( -1749, -254 )
+
+[node name="stats" type="Node" parent="enemy container/tomato8"]
+script = ExtResource( 2 )
+
+[node name="dot" parent="." instance=ExtResource( 15 )]
+position = Vector2( 678, 69 )
+
+[node name="character" parent="." instance=ExtResource( 9 )]
+position = Vector2( 608, 241 )
+
+[connection signal="pressed" from="Button" to="." method="_on_Button_pressed"]

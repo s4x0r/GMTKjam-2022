@@ -7,7 +7,7 @@ extends Node2D
 
 
 func playGame():
-	get_tree().change_scene("res://main.tscn")
+	get_tree().change_scene("res://scenes/main.tscn")
 	pass
 
 
