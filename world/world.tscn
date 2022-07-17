@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://world/top down.tres" type="TileSet" id=1]
 [ext_resource path="res://world/walls.tres" type="TileSet" id=2]
 [ext_resource path="res://world/fort.tscn" type="PackedScene" id=3]
 [ext_resource path="res://world/zone1.tscn" type="PackedScene" id=4]
+[ext_resource path="res://world/loadingzone.tscn" type="PackedScene" id=5]
 
 [node name="world" type="Node2D"]
 
@@ -24,3 +25,9 @@ position = Vector2( 1188, 248 )
 
 [node name="zone1" parent="." instance=ExtResource( 4 )]
 position = Vector2( 747, -575 )
+
+[node name="spawnpoint" type="Position2D" parent="."]
+position = Vector2( -65, -188 )
+
+[node name="loadingzone" parent="." instance=ExtResource( 5 )]
+position = Vector2( 1025, 509 )
