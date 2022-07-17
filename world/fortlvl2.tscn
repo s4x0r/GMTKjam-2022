@@ -1,7 +1,14 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://world/top down.tres" type="TileSet" id=1]
 [ext_resource path="res://world/walls.tres" type="TileSet" id=2]
+[ext_resource path="res://enemies/onion.tscn" type="PackedScene" id=3]
+[ext_resource path="res://enemies/switch.tscn" type="PackedScene" id=4]
+[ext_resource path="res://enemies/enemy.tscn" type="PackedScene" id=5]
+[ext_resource path="res://enemies/door.tscn" type="PackedScene" id=6]
+[ext_resource path="res://enemies/carrot.tscn" type="PackedScene" id=7]
+[ext_resource path="res://enemies/tomato.tscn" type="PackedScene" id=8]
+[ext_resource path="res://enemies/melon.tscn" type="PackedScene" id=9]
 
 [node name="Node2D" type="Node2D"]
 
@@ -19,3 +26,39 @@ tile_data = PoolIntArray( 65536, 536870917, 0, 65537, 536870916, 0, 65538, 53687
 
 [node name="spawnpoint" type="Position2D" parent="."]
 position = Vector2( 192, 232 )
+
+[node name="onion" parent="." instance=ExtResource( 3 )]
+position = Vector2( 475, 259 )
+
+[node name="tomato" parent="." instance=ExtResource( 8 )]
+position = Vector2( 250, 280 )
+
+[node name="tomato" parent="tomato" instance=ExtResource( 8 )]
+position = Vector2( -146, -7 )
+
+[node name="onion" parent="tomato" instance=ExtResource( 3 )]
+position = Vector2( 603, 570 )
+
+[node name="enemy2" parent="tomato" instance=ExtResource( 5 )]
+position = Vector2( 33, 277 )
+
+[node name="enemy3" parent="tomato" instance=ExtResource( 7 )]
+position = Vector2( 43, 501 )
+
+[node name="switch" parent="tomato/enemy3" instance=ExtResource( 4 )]
+position = Vector2( 588, -59 )
+
+[node name="door" parent="tomato/enemy3/switch" instance=ExtResource( 6 )]
+position = Vector2( -178, 69 )
+
+[node name="door" parent="tomato/enemy3" instance=ExtResource( 6 )]
+position = Vector2( 257, 5 )
+
+[node name="melon" parent="." instance=ExtResource( 9 )]
+position = Vector2( 644, 257 )
+
+[node name="onion2" parent="." instance=ExtResource( 3 )]
+position = Vector2( 781, 720 )
+
+[node name="switch" parent="." instance=ExtResource( 4 )]
+position = Vector2( 799, 259 )
