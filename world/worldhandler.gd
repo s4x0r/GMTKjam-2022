@@ -27,7 +27,9 @@ func newScene(scene, dest):
 	call_deferred("spawnAt", dest)
 
 func spawnAt(loc):
-	$character.global_position = get_node("world/"+loc).global_position
+	for i in get_tree().get_nodes_in_group("spawnpoints"):
+		if i.name==loc:
+			$character.global_position = i.global_position
 
 
 func newGame():
@@ -39,8 +41,8 @@ func newGame():
 	chr.name="character"
 	add_child(chr)
 
-	$character.global_position=$world/spawnpoint.global_position
-
+	#$character.global_position=$world/spawnpoint.global_position
+	call_deferred("spawnAt", "worldspawn")
 
 	pass
 

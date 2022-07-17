@@ -1,11 +1,11 @@
 [gd_scene load_steps=17 format=2]
 
-[ext_resource path="res://enemies/tomato lv1.gd" type="Script" id=2]
-[ext_resource path="res://enemies/carrot lv15.gd" type="Script" id=3]
-[ext_resource path="res://enemies/melon lv1.gd" type="Script" id=4]
-[ext_resource path="res://enemies/onion lv5.gd" type="Script" id=5]
-[ext_resource path="res://enemies/door lvl5.gd" type="Script" id=6]
-[ext_resource path="res://enemies/celery lv10.gd" type="Script" id=7]
+[ext_resource path="res://enemies/stats templates/tomato lv1.gd" type="Script" id=2]
+[ext_resource path="res://enemies/stats templates/carrot lv15.gd" type="Script" id=3]
+[ext_resource path="res://enemies/stats templates/melon lv1.gd" type="Script" id=4]
+[ext_resource path="res://enemies/stats templates/onion lv5.gd" type="Script" id=5]
+[ext_resource path="res://enemies/stats templates/door lvl5.gd" type="Script" id=6]
+[ext_resource path="res://enemies/stats templates/celery lv10.gd" type="Script" id=7]
 [ext_resource path="res://enemies/melon.tscn" type="PackedScene" id=8]
 [ext_resource path="res://char/character.tscn" type="PackedScene" id=9]
 [ext_resource path="res://enemies/enemy.tscn" type="PackedScene" id=10]
@@ -16,6 +16,7 @@
 [ext_resource path="res://dots/dot.tscn" type="PackedScene" id=15]
 [ext_resource path="res://world/world.tscn" type="PackedScene" id=16]
 [ext_resource path="res://scenes/main.gd" type="Script" id=17]
+
 
 [node name="main" type="Node2D"]
 script = ExtResource( 17 )

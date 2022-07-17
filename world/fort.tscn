@@ -5,7 +5,7 @@
 [ext_resource path="res://world/top down.tres" type="TileSet" id=3]
 [ext_resource path="res://world/walls.tres" type="TileSet" id=4]
 [ext_resource path="res://dots/10dot.gd" type="Script" id=5]
-[ext_resource path="res://enemies/door lvl5.gd" type="Script" id=6]
+[ext_resource path="res://enemies/stats templates/door lvl5.gd" type="Script" id=6]
 
 [node name="fort" type="Node2D"]
 

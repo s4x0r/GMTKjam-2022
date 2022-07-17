@@ -55,48 +55,56 @@ tracks/0/keys = {
 script = ExtResource( 2 )
 
 [node name="unfold" parent="." instance=ExtResource( 1 )]
-position = Vector2( 373, 378 )
+position = Vector2( 600, 445 )
 
 [node name="Label" type="Label" parent="."]
-margin_left = 267.0
-margin_top = 484.0
-margin_right = 793.0
-margin_bottom = 598.0
+margin_left = 216.0
+margin_top = 480.0
+margin_right = 742.0
+margin_bottom = 594.0
 custom_fonts/font = ExtResource( 3 )
 text = "Arrange your pips on the die face to change the weight of your rolls"
 autowrap = true
 
+[node name="Label2" type="Label" parent="."]
+margin_left = 40.0
+margin_top = 184.0
+margin_right = 320.0
+margin_bottom = 325.0
+custom_fonts/font = ExtResource( 3 )
+text = "Move with WASD and roll your die with E or SPACE"
+autowrap = true
+
 [node name="atk" type="Button" parent="."]
-margin_left = 244.0
-margin_top = 218.0
-margin_right = 324.0
-margin_bottom = 238.0
+margin_left = 343.0
+margin_top = 184.0
+margin_right = 423.0
+margin_bottom = 204.0
 text = "Roll Attack"
 
 [node name="def" type="Button" parent="."]
-margin_left = 567.0
-margin_top = 225.0
-margin_right = 660.0
-margin_bottom = 245.0
+margin_left = 468.0
+margin_top = 184.0
+margin_right = 561.0
+margin_bottom = 204.0
 text = "Roll Defense"
 
 [node name="DEFindicator" type="Label" parent="."]
 modulate = Color( 0, 0, 1, 1 )
-margin_left = 684.0
-margin_top = 212.0
-margin_right = 736.0
-margin_bottom = 257.0
+margin_left = 488.0
+margin_top = 213.0
+margin_right = 540.0
+margin_bottom = 258.0
 custom_fonts/font = ExtResource( 3 )
 text = "0"
 align = 1
 valign = 1
 
 [node name="ATKindicator" type="Label" parent="."]
-visible = false
 modulate = Color( 1, 0, 0, 1 )
-margin_left = 362.0
+margin_left = 360.0
 margin_top = 213.0
-margin_right = 414.0
+margin_right = 412.0
 margin_bottom = 258.0
 custom_fonts/font = ExtResource( 3 )
 text = "0"
@@ -111,16 +119,16 @@ anims/RESET = SubResource( 1 )
 [node name="dotcontainer" type="Node2D" parent="."]
 
 [node name="dot" parent="dotcontainer" instance=ExtResource( 4 )]
-position = Vector2( 336, 349 )
+position = Vector2( 464, 410 )
 
 [node name="dot2" parent="dotcontainer" instance=ExtResource( 4 )]
-position = Vector2( 319, 383 )
+position = Vector2( 405.5, 408.5 )
 
 [node name="dot3" parent="dotcontainer" instance=ExtResource( 4 )]
-position = Vector2( 271, 363 )
+position = Vector2( 357.5, 388.5 )
 
 [node name="dot4" parent="dotcontainer" instance=ExtResource( 4 )]
-position = Vector2( 249, 384 )
+position = Vector2( 335.5, 409.5 )
 
 [node name="dot5" parent="dotcontainer" instance=ExtResource( 4 )]
 position = Vector2( 404, 319 )
@@ -141,37 +149,37 @@ position = Vector2( 585, 358 )
 position = Vector2( 533, 337 )
 
 [node name="dot20" parent="dotcontainer" instance=ExtResource( 4 )]
-position = Vector2( 538, 427 )
+position = Vector2( 546, 416 )
 
 [node name="dot21" parent="dotcontainer" instance=ExtResource( 4 )]
-position = Vector2( 495, 432 )
+position = Vector2( 503, 426 )
 
 [node name="dot10" parent="dotcontainer" instance=ExtResource( 4 )]
-position = Vector2( 718, 359 )
+position = Vector2( 602.5, 304.5 )
 
 [node name="dot11" parent="dotcontainer" instance=ExtResource( 4 )]
-position = Vector2( 692, 376 )
+position = Vector2( 510.5, 311.5 )
 
 [node name="dot12" parent="dotcontainer" instance=ExtResource( 4 )]
-position = Vector2( 717, 387 )
+position = Vector2( 601.5, 332.5 )
 
 [node name="dot13" parent="dotcontainer" instance=ExtResource( 4 )]
-position = Vector2( 711, 430 )
+position = Vector2( 595.5, 375.5 )
 
 [node name="dot14" parent="dotcontainer" instance=ExtResource( 4 )]
-position = Vector2( 728, 456 )
+position = Vector2( 612.5, 401.5 )
 
 [node name="dot15" parent="dotcontainer" instance=ExtResource( 4 )]
 position = Vector2( 636, 358 )
 
 [node name="dot16" parent="dotcontainer" instance=ExtResource( 4 )]
-position = Vector2( 688, 291 )
+position = Vector2( 583, 280 )
 
 [node name="dot17" parent="dotcontainer" instance=ExtResource( 4 )]
-position = Vector2( 760, 386 )
+position = Vector2( 644.5, 331.5 )
 
 [node name="dot18" parent="dotcontainer" instance=ExtResource( 4 )]
-position = Vector2( 760, 386 )
+position = Vector2( 644.5, 331.5 )
 
 [node name="5dot" parent="dotcontainer" instance=ExtResource( 5 )]
 position = Vector2( 460, 368 )
@@ -186,7 +194,7 @@ position = Vector2( 517, 391 )
 position = Vector2( 403, 381 )
 
 [node name="5dot3" parent="dotcontainer" instance=ExtResource( 5 )]
-position = Vector2( 369, 293 )
+position = Vector2( 408, 480 )
 
 [node name="5dot4" parent="dotcontainer" instance=ExtResource( 5 )]
 position = Vector2( 379, 430 )
@@ -195,13 +203,13 @@ position = Vector2( 379, 430 )
 position = Vector2( 575, 380 )
 
 [node name="5dot6" parent="dotcontainer" instance=ExtResource( 5 )]
-position = Vector2( 650, 374 )
+position = Vector2( 468.5, 309.5 )
 
 [node name="5dot7" parent="dotcontainer" instance=ExtResource( 5 )]
-position = Vector2( 712, 311 )
+position = Vector2( 596.5, 256.5 )
 
 [node name="5dot8" parent="dotcontainer" instance=ExtResource( 5 )]
-position = Vector2( 787, 361 )
+position = Vector2( 671.5, 306.5 )
 
 [connection signal="pressed" from="atk" to="." method="atk"]
 [connection signal="pressed" from="def" to="." method="def"]

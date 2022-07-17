@@ -105,6 +105,7 @@ func updateHP():
 			get_tree().get_root().add_child(dot)
 			dot.position=self.get_global_position()
 		$die.play()
+		die()
 
 	pass
 
@@ -126,3 +127,7 @@ func _physics_process(delta):
 		# In the case of a 2D platformer, in Godot, upward is negative y, which translates to -1 as a normal.
 		move_and_slide(velocity, Vector2(0, -1))
 	pass
+
+
+func close():
+	pass # Replace with function body.

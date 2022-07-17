@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=16 format=2]
 
 [ext_resource path="res://world/top down.tres" type="TileSet" id=1]
 [ext_resource path="res://world/walls.tres" type="TileSet" id=2]
@@ -10,6 +10,9 @@
 [ext_resource path="res://enemies/chest.tscn" type="PackedScene" id=8]
 [ext_resource path="res://assets/sounds/tunnelsVG.wav" type="AudioStream" id=9]
 [ext_resource path="res://world/bgm.gd" type="Script" id=10]
+[ext_resource path="res://enemies/melon.tscn" type="PackedScene" id=11]
+[ext_resource path="res://enemies/stats templates/forttomato.gd" type="Script" id=12]
+[ext_resource path="res://enemies/stats templates/melon lv1.gd" type="Script" id=13]
 
 [sub_resource type="AtlasTexture" id=2]
 flags = 4
@@ -71,4 +74,42 @@ texture = SubResource( 1 )
 position = Vector2( 1, 0 )
 scale = Vector2( 0.964885, 3.50429 )
 
-[connection signal="body_entered" from="stuffcontainer/fort stairs/loadingzone" to="stuffcontainer/fort stairs/loadingzone" method="loadScene" flags=3 binds= [ "res://world/fortlvl2.tscn", "spawnpoint" ]]
+[node name="melon" parent="stuffcontainer" instance=ExtResource( 11 )]
+position = Vector2( 959, 520 )
+
+[node name="stats" type="Node" parent="stuffcontainer/melon"]
+script = ExtResource( 13 )
+
+[node name="melon2" parent="stuffcontainer" instance=ExtResource( 11 )]
+position = Vector2( 844, 701 )
+
+[node name="stats" type="Node" parent="stuffcontainer/melon2"]
+script = ExtResource( 12 )
+
+[node name="melon3" parent="stuffcontainer" instance=ExtResource( 11 )]
+position = Vector2( 1195, 714 )
+
+[node name="stats" type="Node" parent="stuffcontainer/melon3"]
+script = ExtResource( 12 )
+
+[node name="melon4" parent="stuffcontainer" instance=ExtResource( 11 )]
+position = Vector2( 241, 496 )
+
+[node name="stats" type="Node" parent="stuffcontainer/melon4"]
+script = ExtResource( 12 )
+
+[node name="melon5" parent="stuffcontainer" instance=ExtResource( 11 )]
+position = Vector2( 387, 161 )
+
+[node name="stats" type="Node" parent="stuffcontainer/melon5"]
+script = ExtResource( 13 )
+
+[node name="melon6" parent="stuffcontainer" instance=ExtResource( 11 )]
+position = Vector2( 491, 398 )
+
+[node name="stats" type="Node" parent="stuffcontainer/melon6"]
+script = ExtResource( 12 )
+
+[node name="worldspawn" type="Node2D" parent="."]
+
+[connection signal="body_entered" from="stuffcontainer/fort stairs/loadingzone" to="stuffcontainer/fort stairs/loadingzone" method="loadScene" flags=3 binds= [ "res://world/fortlvl2.tscn", "fortlv2spawn" ]]
