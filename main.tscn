@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=2]
+[gd_scene load_steps=26 format=2]
 
 [ext_resource path="res://char/randomizer.gd" type="Script" id=1]
 [ext_resource path="res://char/dice.gd" type="Script" id=2]
@@ -21,6 +21,7 @@
 [ext_resource path="res://enemies/door lvl5.gd" type="Script" id=19]
 [ext_resource path="res://enemies/switch lv1.gd" type="Script" id=20]
 [ext_resource path="res://enemies/switch.tscn" type="PackedScene" id=21]
+[ext_resource path="res://enemies/bars.tscn" type="PackedScene" id=22]
 
 [sub_resource type="Animation" id=1]
 length = 0.001
@@ -261,16 +262,22 @@ position = Vector2( -1749, -254 )
 [node name="stats" type="Node" parent="enemy container/tomato8"]
 script = ExtResource( 15 )
 
+[node name="switch" parent="enemy container" instance=ExtResource( 21 )]
+position = Vector2( 637, -163 )
+
+[node name="stats" type="Node" parent="enemy container/switch"]
+script = ExtResource( 20 )
+
+[node name="bars" parent="enemy container" instance=ExtResource( 22 )]
+position = Vector2( 765, -201 )
+scale = Vector2( 2, 2 )
+
 [node name="dot" parent="." instance=ExtResource( 13 )]
 position = Vector2( 678, 69 )
 
 [node name="character" parent="." instance=ExtResource( 5 )]
 position = Vector2( 608, 241 )
 
-[node name="switch" parent="." instance=ExtResource( 21 )]
-position = Vector2( 637, -163 )
-
-[node name="stats" type="Node" parent="switch"]
-script = ExtResource( 20 )
-
 [connection signal="pressed" from="Button" to="." method="_on_Button_pressed"]
+[connection signal="off" from="enemy container/switch" to="enemy container/bars" method="close"]
+[connection signal="on" from="enemy container/switch" to="enemy container/bars" method="open"]

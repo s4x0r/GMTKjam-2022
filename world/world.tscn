@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://world/top down.tres" type="TileSet" id=1]
 [ext_resource path="res://world/walls.tres" type="TileSet" id=2]
 [ext_resource path="res://world/fort.tscn" type="PackedScene" id=3]
+[ext_resource path="res://world/zone1.tscn" type="PackedScene" id=4]
 
 [node name="world" type="Node2D"]
 
@@ -20,3 +21,6 @@ tile_data = PoolIntArray( 327703, 3, 0, 327704, 4, 0, 327705, 4, 0, 327706, 4, 0
 
 [node name="fort" parent="." instance=ExtResource( 3 )]
 position = Vector2( 1188, 248 )
+
+[node name="zone1" parent="." instance=ExtResource( 4 )]
+position = Vector2( 747, -575 )
