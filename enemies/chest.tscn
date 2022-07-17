@@ -1,0 +1,103 @@
+[gd_scene load_steps=9 format=2]
+
+[ext_resource path="res://assets/font small.tres" type="DynamicFont" id=1]
+[ext_resource path="res://assets/Pixel Art Top Down/TX Props.png" type="Texture" id=2]
+[ext_resource path="res://enemies/chest.gd" type="Script" id=3]
+
+[sub_resource type="RectangleShape2D" id=6]
+extents = Vector2( 32, 32 )
+
+[sub_resource type="AtlasTexture" id=7]
+flags = 4
+atlas = ExtResource( 2 )
+region = Rect2( 96, 30, 32, 31 )
+
+[sub_resource type="Animation" id=8]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:texture:margin")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Rect2( 0, 0, 0, 0 ) ]
+}
+
+[sub_resource type="Animation" id=4]
+resource_name = "closed"
+
+[sub_resource type="Animation" id=5]
+resource_name = "open"
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:texture:region")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Rect2( 96, 76, 32, 49 ) ]
+}
+
+[node name="chest" type="StaticBody2D"]
+position = Vector2( 194, 328 )
+collision_layer = 32
+script = ExtResource( 3 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2( -2, 0 )
+shape = SubResource( 6 )
+
+[node name="Sprite" type="Sprite" parent="."]
+position = Vector2( -2, 0.493243 )
+scale = Vector2( 1.72973, 1.93973 )
+texture = SubResource( 7 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+autoplay = "closed"
+anims/RESET = SubResource( 8 )
+anims/closed = SubResource( 4 )
+anims/open = SubResource( 5 )
+
+[node name="DMGindicator" type="Label" parent="."]
+modulate = Color( 1, 0, 0, 1 )
+margin_left = -28.0
+margin_top = 8.0
+margin_right = 28.0
+margin_bottom = 53.0
+custom_fonts/font = ExtResource( 1 )
+text = "0"
+align = 1
+valign = 1
+
+[node name="DEFindicator" type="Label" parent="."]
+modulate = Color( 0, 0, 1, 1 )
+margin_left = -25.0
+margin_top = 43.0
+margin_right = 27.0
+margin_bottom = 88.0
+custom_fonts/font = ExtResource( 1 )
+text = "0"
+align = 1
+valign = 1
+
+[node name="HPindicator" type="Label" parent="."]
+modulate = Color( 0, 1, 0, 1 )
+margin_left = -27.0
+margin_top = -66.0
+margin_right = 29.0
+margin_bottom = -21.0
+rect_pivot_offset = Vector2( 127, 66 )
+custom_fonts/font = ExtResource( 1 )
+text = "0"
+align = 1
+valign = 1

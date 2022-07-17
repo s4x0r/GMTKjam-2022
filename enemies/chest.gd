@@ -1,15 +1,15 @@
 extends StaticBody2D
 
 
+onready var d= preload("res://dots/dot.tscn")
 var hp
 var def 
 var time
+var hold
 var rng = RandomNumberGenerator.new()
 
-
-# Called when the node enters the scene tree for the first time.
 func _ready():
-	
+
 	$DMGindicator.text=""
 	$HPindicator.text=""
 	$DEFindicator.text=""
@@ -19,13 +19,12 @@ func _ready():
 	
 	hp = $stats.hp
 	def = $stats.def
+	hold = $stats.hold
 
+	$AnimationPlayer.play("closed")
 
 	updateHP()
 	pass # Replace with function body.
-
-
-
 
 
 
@@ -56,8 +55,15 @@ func showdmg(dmg, def):
 func updateHP():
 	$HPindicator.text=str(hp)
 	if hp<=0:
+		hp=0
 		$AnimationPlayer.play("open")
 		$CollisionShape2D.disabled=true
 
-	pass
+		
+		var dot = d.instance()
+		dot.weight=hold
+		get_node("/root").add_child(dot)
+		dot.global_position=global_position
 
+	pass
+	
