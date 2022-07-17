@@ -1,10 +1,21 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://world/top down.tres" type="TileSet" id=1]
 [ext_resource path="res://world/walls.tres" type="TileSet" id=2]
 [ext_resource path="res://world/fort.tscn" type="PackedScene" id=3]
 [ext_resource path="res://world/zone1.tscn" type="PackedScene" id=4]
 [ext_resource path="res://world/loadingzone.tscn" type="PackedScene" id=5]
+[ext_resource path="res://assets/Pixel Art Top Down/TX Struct.png" type="Texture" id=6]
+
+[sub_resource type="AtlasTexture" id=1]
+flags = 4
+atlas = ExtResource( 6 )
+region = Rect2( 32, 32, 64, 96 )
+
+[sub_resource type="AtlasTexture" id=2]
+flags = 4
+atlas = ExtResource( 6 )
+region = Rect2( 416, 128, 64, 64 )
 
 [node name="world" type="Node2D"]
 
@@ -18,7 +29,7 @@ tile_data = PoolIntArray( -1114171, -1610612735, 0, -1114170, -1610612735, 0, -1
 tile_set = ExtResource( 2 )
 cell_size = Vector2( 32, 32 )
 format = 1
-tile_data = PoolIntArray( 327703, 3, 0, 327704, 4, 0, 327705, 4, 0, 327706, 4, 0, 327707, 5, 0, 393239, 6, 0, 393243, 8, 0, 458775, 0, 0, 458776, 1, 0, 458777, 1, 0, 458778, 1, 0, 458779, 2, 0 )
+tile_data = PoolIntArray( 327703, 3, 0, 327704, 4, 0, 327705, 4, 0, 327706, 4, 0, 327707, 5, 0, 393239, 6, 0, 393243, 8, 0, 458775, 0, 0, 458776, 1, 0, 458777, 1, 0, 458778, 1, 0, 458779, 2, 0, 655393, 3, 0, 655394, 4, 0, 655395, 4, 0, 655396, 5, 0, 720929, 6, 0, 720932, 8, 0, 786465, 0, 0, 786466, 1, 0, 786467, 1, 0, 786468, 2, 0 )
 
 [node name="fort" parent="." instance=ExtResource( 3 )]
 position = Vector2( 1188, 248 )
@@ -29,5 +40,18 @@ position = Vector2( 747, -575 )
 [node name="spawnpoint" type="Position2D" parent="."]
 position = Vector2( -65, -188 )
 
-[node name="loadingzone" parent="." instance=ExtResource( 5 )]
-position = Vector2( 1025, 509 )
+[node name="Sprite" type="Sprite" parent="."]
+position = Vector2( 1126, 535 )
+scale = Vector2( 2, 2 )
+texture = SubResource( 1 )
+
+[node name="loadingzone" parent="Sprite" instance=ExtResource( 5 )]
+position = Vector2( 1, 0 )
+scale = Vector2( 0.964885, 3.50429 )
+
+[node name="Sprite2" type="Sprite" parent="."]
+position = Vector2( 1127.5, 380.5 )
+scale = Vector2( 1.95313, 1.95313 )
+texture = SubResource( 2 )
+
+[connection signal="body_entered" from="Sprite/loadingzone" to="Sprite/loadingzone" method="loadScene" flags=3 binds= [ "res://world/fortlvl2.tscn", "spawnpoint" ]]

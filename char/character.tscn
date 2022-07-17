@@ -313,7 +313,6 @@ tracks/0/keys = {
 }
 
 [node name="character" type="KinematicBody2D"]
-position = Vector2( 624, 296 )
 collision_layer = 17
 script = ExtResource( 1 )
 

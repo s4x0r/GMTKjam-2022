@@ -15,6 +15,8 @@ func _ready():
 #func _process(delta):
 #	pass
 
-func loadScene(scene, location):
+func loadScene(body, scene, location):
+	if body.name != "character":
+		return
 	get_node("/root/worldhandler").newScene(scene, location)
 	pass
