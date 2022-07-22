@@ -1,10 +1,9 @@
-[gd_scene load_steps=16 format=2]
+[gd_scene load_steps=14 format=2]
 
-[ext_resource path="res://world/top down.tres" type="TileSet" id=1]
-[ext_resource path="res://world/walls.tres" type="TileSet" id=2]
-[ext_resource path="res://world/fort.tscn" type="PackedScene" id=3]
+[ext_resource path="res://assets/top down.tres" type="TileSet" id=1]
+[ext_resource path="res://assets/walls.tres" type="TileSet" id=2]
+[ext_resource path="res://world/fort/fort.tscn" type="PackedScene" id=3]
 [ext_resource path="res://world/zone1.tscn" type="PackedScene" id=4]
-[ext_resource path="res://world/loadingzone.tscn" type="PackedScene" id=5]
 [ext_resource path="res://assets/Pixel Art Top Down/TX Struct.png" type="Texture" id=6]
 [ext_resource path="res://world/chest lv1.gd" type="Script" id=7]
 [ext_resource path="res://enemies/chest.tscn" type="PackedScene" id=8]
@@ -18,11 +17,6 @@
 flags = 4
 atlas = ExtResource( 6 )
 region = Rect2( 416, 128, 64, 64 )
-
-[sub_resource type="AtlasTexture" id=1]
-flags = 4
-atlas = ExtResource( 6 )
-region = Rect2( 32, 32, 64, 96 )
 
 [node name="world" type="Node2D"]
 
@@ -52,8 +46,8 @@ position = Vector2( 747, -575 )
 [node name="spawnpoint" type="Position2D" parent="."]
 position = Vector2( -65, -188 )
 
-[node name="Sprite2" type="Sprite" parent="."]
-position = Vector2( 1127.5, 380.5 )
+[node name="archway" type="Sprite" parent="."]
+position = Vector2( -765, -92 )
 scale = Vector2( 1.95313, 1.95313 )
 texture = SubResource( 2 )
 
@@ -64,15 +58,6 @@ position = Vector2( 802, 510 )
 
 [node name="stats" type="Node" parent="stuffcontainer/chest"]
 script = ExtResource( 7 )
-
-[node name="fort stairs" type="Sprite" parent="stuffcontainer"]
-position = Vector2( 1126, 535 )
-scale = Vector2( 2, 2 )
-texture = SubResource( 1 )
-
-[node name="loadingzone" parent="stuffcontainer/fort stairs" instance=ExtResource( 5 )]
-position = Vector2( 1, 0 )
-scale = Vector2( 0.964885, 3.50429 )
 
 [node name="melon" parent="stuffcontainer" instance=ExtResource( 11 )]
 position = Vector2( 959, 520 )
@@ -111,5 +96,3 @@ position = Vector2( 491, 398 )
 script = ExtResource( 12 )
 
 [node name="worldspawn" type="Node2D" parent="."]
-
-[connection signal="body_entered" from="stuffcontainer/fort stairs/loadingzone" to="stuffcontainer/fort stairs/loadingzone" method="loadScene" flags=3 binds= [ "res://world/fortlvl2.tscn", "fortlv2spawn" ]]

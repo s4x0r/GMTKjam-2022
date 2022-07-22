@@ -21,12 +21,15 @@ func newScene(scene, dest):
 	var new = load(scene)
 	$world.call_deferred("queue_free")
 	var i=new.instance()
+	yield(get_tree(), "idle_frame")
+	#print("idle_frame in worldhandler")
+	add_child(i)
 	i.name="world"
-	call_deferred("add_child", i)
 	i.z_index=-10
-	call_deferred("spawnAt", dest)
+	spawnAt(dest)
 
 func spawnAt(loc):
+	print("spawnAt" + str(loc))
 	for i in get_tree().get_nodes_in_group("spawnpoints"):
 		if i.name==loc:
 			$character.global_position = i.global_position

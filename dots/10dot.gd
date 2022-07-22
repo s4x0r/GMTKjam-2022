@@ -7,7 +7,7 @@ extends Sprite
 
 var moving
 var bounce = 3
-var weight = 5
+var weight = 10
 
 # Called when the node enters the scene tree for the first time.
 func _ready():

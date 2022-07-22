@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=2]
+[gd_scene load_steps=24 format=2]
 
 [ext_resource path="res://char/character.gd" type="Script" id=1]
 [ext_resource path="res://assets/IMG_5897.png" type="Texture" id=2]
@@ -7,6 +7,7 @@
 [ext_resource path="res://dots/dot.tscn" type="PackedScene" id=5]
 [ext_resource path="res://dots/5dot.tscn" type="PackedScene" id=6]
 [ext_resource path="res://assets/FlatUI/kenneyUI-blue.tres" type="Theme" id=7]
+[ext_resource path="res://dots/10dot.gd" type="Script" id=8]
 [ext_resource path="res://assets/sounds/pickupCoin.wav" type="AudioStream" id=9]
 [ext_resource path="res://assets/sounds/death_sfx.wav" type="AudioStream" id=10]
 [ext_resource path="res://assets/sounds/slash1.wav" type="AudioStream" id=11]
@@ -223,13 +224,33 @@ position = Vector2( 232, 193 )
 position = Vector2( 176, -80 )
 
 [node name="5dot" parent="Camera2D/ui/dice window/DOTcontainer" instance=ExtResource( 6 )]
-position = Vector2( -64, 176 )
+position = Vector2( -80, 193 )
+
+[node name="10dot" parent="Camera2D/ui/dice window/DOTcontainer" instance=ExtResource( 6 )]
+position = Vector2( -152, 203 )
+script = ExtResource( 8 )
+
+[node name="10dot2" parent="Camera2D/ui/dice window/DOTcontainer" instance=ExtResource( 6 )]
+position = Vector2( -128, 203 )
+script = ExtResource( 8 )
+
+[node name="10dot3" parent="Camera2D/ui/dice window/DOTcontainer" instance=ExtResource( 6 )]
+position = Vector2( -176, 219 )
+script = ExtResource( 8 )
+
+[node name="10dot4" parent="Camera2D/ui/dice window/DOTcontainer" instance=ExtResource( 6 )]
+position = Vector2( -59, 193 )
+script = ExtResource( 8 )
+
+[node name="10dot5" parent="Camera2D/ui/dice window/DOTcontainer" instance=ExtResource( 6 )]
+position = Vector2( -151, 267 )
+script = ExtResource( 8 )
 
 [node name="5dot2" parent="Camera2D/ui/dice window/DOTcontainer" instance=ExtResource( 6 )]
-position = Vector2( 24, 176 )
+position = Vector2( -136, 246 )
 
 [node name="5dot3" parent="Camera2D/ui/dice window/DOTcontainer" instance=ExtResource( 6 )]
-position = Vector2( -24, 192 )
+position = Vector2( -111, 246 )
 
 [node name="dot" parent="Camera2D/ui/dice window/DOTcontainer" instance=ExtResource( 5 )]
 position = Vector2( 48, 240 )
@@ -241,25 +262,25 @@ position = Vector2( -7.5, 273.5 )
 position = Vector2( -119.5, 160.5 )
 
 [node name="5dot4" parent="Camera2D/ui/dice window/DOTcontainer" instance=ExtResource( 6 )]
-position = Vector2( -63.5, 112.5 )
+position = Vector2( -144, 187 )
 
 [node name="5dot5" parent="Camera2D/ui/dice window/DOTcontainer" instance=ExtResource( 6 )]
-position = Vector2( -63.5, 176.5 )
+position = Vector2( -111, 195 )
 
 [node name="5dot6" parent="Camera2D/ui/dice window/DOTcontainer" instance=ExtResource( 6 )]
-position = Vector2( 56.5, 264.5 )
+position = Vector2( -136, 227 )
 
 [node name="dot4" parent="Camera2D/ui/dice window/DOTcontainer" instance=ExtResource( 5 )]
 position = Vector2( -47.5, 224.5 )
 
 [node name="dot5" parent="Camera2D/ui/dice window/DOTcontainer" instance=ExtResource( 5 )]
-position = Vector2( -71.5, 224.5 )
+position = Vector2( -67, 225 )
 
 [node name="dot6" parent="Camera2D/ui/dice window/DOTcontainer" instance=ExtResource( 5 )]
-position = Vector2( -7.5, 176.5 )
+position = Vector2( -7, 219 )
 
 [node name="5dot7" parent="Camera2D/ui/dice window/DOTcontainer" instance=ExtResource( 6 )]
-position = Vector2( 48, 120 )
+position = Vector2( -176, 195 )
 
 [node name="dot7" parent="Camera2D/ui/dice window/DOTcontainer" instance=ExtResource( 5 )]
 position = Vector2( -8, 168 )
